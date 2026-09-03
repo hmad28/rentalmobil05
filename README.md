@@ -1,27 +1,25 @@
-# Azbu Trans Jaya Rental Mobil
+# Azbu Trans Jaya — Rental Mobil
 
-Website company profile dan conversion-focused homepage untuk **Azbu Trans Jaya**, layanan rental mobil di Surabaya dan Sidoarjo.
+Website company profile dan landing page pemesanan untuk **Azbu Trans Jaya**, penyedia rental mobil yang melayani Surabaya, Sidoarjo, dan area sekitarnya.
 
-Tampilan dirancang dengan arah **modern automotive + clean editorial**: hero armada yang kuat, katalog kendaraan yang mudah dipindai, galeri perjalanan, featured vehicle cinematic, dan alur booking WhatsApp yang jelas.
+Homepage menggunakan struktur editorial otomotif: hero armada, katalog kendaraan horizontal, alasan memilih layanan, featured vehicle, layanan dan alur booking berdampingan, cakupan area, FAQ, serta CTA WhatsApp. Identitas visual Azbu Trans Jaya—warna, tipografi, logo, dan aset kendaraan—dipertahankan sebagai fondasi desain.
 
-## Fitur
+## Fitur utama
 
-- Homepage responsif untuk desktop, tablet, dan mobile
-- Hero Toyota Innova Reborn, Suzuki XL7, dan Toyota Hiace
-- Armada pilihan dengan horizontal scroll-snap pada mobile
-- Galeri visual armada, kabin, serah-terima, dan perjalanan
-- Featured Innova Reborn dengan background cinematic
-- Layanan rental harian, airport transfer, wisata, dan rombongan
-- Alur booking empat langkah
-- Area layanan dengan data demo yang ditandai secara eksplisit
-- FAQ accordion dengan keyboard support dan atribut ARIA
-- Reusable WhatsApp deep link dengan pesan terisi otomatis
-- Sticky navigation dan mobile menu
-- Framer Motion dengan dukungan `prefers-reduced-motion`
+- Hero responsif dengan fokus pada armada dan CTA utama
+- Katalog tujuh kendaraan dengan horizontal scroll pada layar kecil
+- Section benefit horizontal yang mudah dipindai
+- Featured Innova Reborn dengan presentasi sinematik
+- Ringkasan layanan dan alur booking empat langkah
+- Visual area layanan Surabaya, Sidoarjo, dan sekitarnya
+- FAQ accordion yang mendukung keyboard dan atribut ARIA
+- CTA WhatsApp dengan pesan yang dapat dikonfigurasi
+- Sticky navigation, mobile menu, dan floating CTA pada mobile
+- Animasi dengan dukungan `prefers-reduced-motion`
 - Metadata SEO, Open Graph, Twitter Card, sitemap, robots, dan JSON-LD
-- Optimasi gambar melalui `next/image` dengan AVIF/WebP
+- Optimasi aset melalui `next/image` dengan output AVIF/WebP
 
-## Tech Stack
+## Teknologi
 
 - Next.js 16 App Router
 - React 19
@@ -31,43 +29,28 @@ Tampilan dirancang dengan arah **modern automotive + clean editorial**: hero arm
 - Lucide React
 - Playwright untuk visual dan interaction checks
 
-## Menjalankan Project
+## Menjalankan secara lokal
 
-Persyaratan:
-
-- Node.js versi yang kompatibel dengan Next.js 16
-- npm
-
-Install dependency:
+Pastikan Node.js dan npm sudah tersedia, kemudian jalankan:
 
 ```bash
 npm install
-```
-
-Jalankan development server:
-
-```bash
 npm run dev
 ```
 
 Buka [http://localhost:3000](http://localhost:3000).
 
-Build produksi:
+Untuk memeriksa tipe dan membuat production build:
 
 ```bash
+npm run lint
 npm run build
 npm run start
 ```
 
-Type checking:
+## Konfigurasi bisnis
 
-```bash
-npm run lint
-```
-
-## Konfigurasi Bisnis
-
-Seluruh data kontak berada di [`lib/data.ts`](./lib/data.ts):
+Data bisnis dan konten utama dikelola dari [`lib/data.ts`](./lib/data.ts):
 
 ```ts
 export const business = {
@@ -82,68 +65,58 @@ export const business = {
 };
 ```
 
-Gunakan format internasional tanpa tanda `+` untuk WhatsApp, misalnya `6281234567890`. Saat nomor masih kosong, seluruh CTA WhatsApp diarahkan ke section kontak dan tidak memakai nomor palsu.
+Gunakan format internasional tanpa tanda `+` untuk nomor WhatsApp, misalnya `6281234567890`. Jika nomor belum diisi, CTA WhatsApp akan diarahkan ke section kontak sehingga website tidak menampilkan nomor palsu.
 
-Data armada, layanan, benefit, booking, area demo, FAQ, serta footer juga dikelola dari file yang sama agar revisi konten tidak tersebar di markup.
+File yang sama juga menyimpan daftar armada, benefit, layanan, langkah booking, area layanan, FAQ, dan navigasi footer.
 
-## Status Konten
-
-- Nomor telepon, WhatsApp, email, dan alamat belum diisi karena data resmi belum tersedia.
-- Lokasi di peta selain Surabaya dan Sidoarjo merupakan data demo dan harus diverifikasi klien.
-- Jawaban FAQ yang bergantung pada kebijakan rental menggunakan wording konsultatif.
-- Testimonial tidak ditampilkan sampai review pelanggan yang dapat diverifikasi tersedia.
-- Foto galeri adalah visual representatif hasil image generation, bukan dokumentasi operasional Azbu Trans Jaya.
-
-Ganti aset galeri di `public/images/gallery-*.png` dengan foto unit, interior, driver, atau serah-terima asli untuk meningkatkan bukti sosial dan kepercayaan pelanggan.
-
-## Struktur Project
+## Struktur proyek
 
 ```text
 app/
-  layout.tsx        Metadata dan root layout
-  page.tsx          Komposisi homepage dan structured data
-  globals.css       Design system dan responsive styling
-  robots.ts         Robots configuration
-  sitemap.ts        Sitemap generation
+  layout.tsx         Root layout, font, dan metadata
+  page.tsx           Komposisi homepage dan structured data
+  globals.css        Design tokens, layout, dan responsive styling
+  robots.ts          Konfigurasi crawler
+  sitemap.ts         Sitemap
 components/
-  Navbar.tsx        Sticky navigation dan mobile menu
-  Hero.tsx          Hero copy dan komposisi armada
-  FleetCard.tsx     Kartu armada reusable
-  FeatureCard.tsx   Value proposition reusable
-  ServiceCard.tsx   Layanan berbasis foto
-  BookingStep.tsx   Stepper booking
-  FAQ.tsx           Accordion accessible
-  CTA.tsx           WhatsApp conversion banner
-  Footer.tsx        Footer dan kontak configurable
+  Navbar.tsx         Navigasi desktop dan mobile
+  Hero.tsx           Hero dan komposisi armada
+  FleetCard.tsx      Item katalog kendaraan
+  FeatureCard.tsx    Benefit layanan
+  ServiceCard.tsx    Ringkasan layanan
+  BookingStep.tsx    Alur booking
+  FAQ.tsx            Accordion accessible
+  CTA.tsx            Banner konversi WhatsApp
+  Footer.tsx         Informasi dan navigasi footer
 lib/
-  data.ts           Business config dan seluruh content arrays
-public/images/      Logo, kendaraan, background, galeri, dan map
+  data.ts            Konfigurasi bisnis dan sumber konten
+public/images/       Logo, kendaraan, background, galeri, dan peta
 scripts/
-  visual_check.py   Visual, responsive, image, menu, dan FAQ checks
+  visual_check.py    Pemeriksaan visual dan interaksi lintas viewport
 ```
 
-## Quality Checks
+## Quality checks
 
-Visual regression dan interaction check dapat dijalankan saat dev server aktif:
+Dengan development server aktif, jalankan:
 
 ```bash
 python scripts/visual_check.py
 ```
 
-Pemeriksaan mencakup:
+Pemeriksaan otomatis mencakup viewport desktop `1440×900`, tablet `1024×768`, dan mobile `390×844`, termasuk:
 
-- Desktop `1440x900`
-- Tablet `1024x768`
-- Mobile `390x844`
-- Horizontal overflow
-- Broken images
-- Mobile navigation
+- horizontal overflow
+- gambar rusak
+- error console dan runtime
+- menu mobile
 - FAQ accordion
-- Mobile WhatsApp CTA
-- Browser console dan runtime errors
+- floating WhatsApp CTA
 
-## Asset Notes
+## Status konten
 
-Logo Azbu Trans Jaya berasal dari aset yang diberikan pemilik project. Visual kendaraan, galeri representatif, hero city ribbon, featured stage, dan map disimpan secara lokal agar rendering stabil dan tidak bergantung pada hotlink eksternal.
+- Telepon, WhatsApp, email, dan alamat masih menunggu data resmi.
+- Lokasi pada visual peta perlu diverifikasi sebelum publikasi.
+- Kebijakan rental yang belum tersedia ditulis sebagai arahan untuk berkonsultasi.
+- Aset galeri bersifat representatif dan dapat diganti dengan dokumentasi operasional asli.
 
-Sebelum website dipublikasikan untuk bisnis, lakukan final content verification terhadap kontak, kebijakan rental, area layanan, ketersediaan unit, serta hak penggunaan semua foto pengganti.
+Sebelum deployment produksi, verifikasi data kontak, kebijakan pemesanan, area layanan, ketersediaan unit, dan hak penggunaan seluruh foto.

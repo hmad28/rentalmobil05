@@ -17,9 +17,8 @@ import {
   business,
   demoAreas,
   faqs,
-  featuredFleet,
+  fleet,
   featuredSpecs,
-  gallery,
   schemaFaq,
   services,
   whatsappUrl,
@@ -51,11 +50,9 @@ export default function Home() {
       <main>
         <Hero />
         <FleetSection />
-        <GallerySection />
         <WhySection />
         <FeaturedVehicle />
-        <ServicesSection />
-        <BookingSection />
+        <JourneySection />
         <ServiceAreaSection />
         <FAQSection />
         <CTA />
@@ -82,31 +79,7 @@ function FleetSection() {
           <a href="#kontak">Lihat semua armada <ArrowRight size={18} /></a>
         </Reveal>
         <div className="fleet-track no-scrollbar">
-          {featuredFleet.map((vehicle) => <FleetCard key={vehicle.name} {...vehicle} />)}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function GallerySection() {
-  return (
-    <section className="gallery-section" aria-labelledby="gallery-title">
-      <div className="container-page">
-        <Reveal className="gallery-heading">
-          <div>
-            <p className="section-kicker">Armada & Perjalanan</p>
-            <h2 id="gallery-title">Siap Menemani Setiap Rencana Perjalanan</h2>
-          </div>
-          <p>Visual representatif layanan. Dokumentasi unit asli dapat menggantikan galeri ini saat tersedia.</p>
-        </Reveal>
-        <div className="gallery-grid">
-          {gallery.map((item, index) => (
-            <Reveal key={item.image} className={`gallery-item gallery-item-${index + 1}`} delay={index * 0.04}>
-              <Image src={item.image} alt={item.alt} fill sizes="(max-width: 767px) 88vw, 50vw" />
-              <span>{item.label}</span>
-            </Reveal>
-          ))}
+          {fleet.map((vehicle) => <FleetCard key={vehicle.name} {...vehicle} />)}
         </div>
       </div>
     </section>
@@ -168,42 +141,39 @@ function FeaturedVehicle() {
   );
 }
 
-function ServicesSection() {
+function JourneySection() {
   return (
-    <section id="layanan" className="services-section">
-      <div className="container-page">
-        <Reveal className="section-heading services-heading">
-          <div>
-          <h2>Layanan Kami</h2>
-          <p>Tiga kebutuhan utama, dengan detail perjalanan yang dikonsultasikan langsung.</p>
+    <section id="layanan" className="journey-section">
+      <div className="container-page journey-grid">
+        <div className="services-panel">
+          <Reveal className="section-heading services-heading">
+            <div>
+              <p className="section-kicker">Pilihan perjalanan</p>
+              <h2>Layanan Kami</h2>
+            </div>
+          </Reveal>
+          <div className="services-grid">
+            {services.map((service, index) => (
+              <Reveal key={service.title} delay={index * 0.035}>
+                <ServiceCard {...service} />
+              </Reveal>
+            ))}
           </div>
-        </Reveal>
-        <div className="services-grid">
-          {services.map((service, index) => (
-            <Reveal key={service.title} delay={index * 0.035}>
-              <ServiceCard {...service} />
-            </Reveal>
-          ))}
         </div>
-      </div>
-    </section>
-  );
-}
-
-function BookingSection() {
-  return (
-    <section className="booking-section">
-      <div className="container-page">
-        <Reveal className="center-heading booking-heading">
-          <h2>Cara Booking</h2>
-          <p>Empat langkah sederhana untuk menyiapkan perjalanan Anda.</p>
-        </Reveal>
-        <div className="booking-grid">
-          {bookingSteps.map((step, index) => (
-            <Reveal key={step.title} delay={index * 0.045}>
-              <BookingStep {...step} index={index} isLast={index === bookingSteps.length - 1} />
-            </Reveal>
-          ))}
+        <div className="booking-panel">
+          <Reveal className="section-heading booking-heading">
+            <div>
+              <p className="section-kicker">Proses singkat</p>
+              <h2>Cara Booking</h2>
+            </div>
+          </Reveal>
+          <div className="booking-grid">
+            {bookingSteps.map((step, index) => (
+              <Reveal key={step.title} delay={index * 0.045}>
+                <BookingStep {...step} index={index} isLast={index === bookingSteps.length - 1} />
+              </Reveal>
+            ))}
+          </div>
         </div>
       </div>
     </section>
