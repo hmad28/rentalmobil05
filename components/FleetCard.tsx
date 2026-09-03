@@ -22,14 +22,25 @@ export function FleetCard({ name, image, transmission, seats, price }: FleetVehi
         <strong className="fleet-card-title">{name}</strong>
 
         <div className="fleet-card-specs">
-          <span className="fleet-spec-item">
-            <Gauge size={13} />
-            {transmission}
-          </span>
-          <span className="fleet-spec-item">
-            <UsersRound size={13} />
-            {seats}
-          </span>
+          <div className="fleet-spec-badge">
+            <span className="fleet-spec-icon-box">
+              <Gauge size={14} />
+            </span>
+            <span className="fleet-spec-text">
+              <span className="fleet-spec-label">Transmisi</span>
+              <strong className="fleet-spec-val">{transmission}</strong>
+            </span>
+          </div>
+
+          <div className="fleet-spec-badge">
+            <span className="fleet-spec-icon-box">
+              <UsersRound size={14} />
+            </span>
+            <span className="fleet-spec-text">
+              <span className="fleet-spec-label">Kapasitas</span>
+              <strong className="fleet-spec-val">{seats}</strong>
+            </span>
+          </div>
         </div>
 
         <div className="fleet-card-price-row">
