@@ -40,16 +40,19 @@ export type FleetVehicle = {
   name: string;
   category: string;
   image: string;
+  transmission: string;
+  seats: string;
+  price: number;
 };
 
 export const fleet: FleetVehicle[] = [
-  { name: "Sigra CVT", category: "City Car", image: "/images/sigra.png" },
-  { name: "XL7 CVT", category: "SUV", image: "/images/xl7-clean.png" },
-  { name: "Xenia", category: "MPV", image: "/images/xenia-v2.png" },
-  { name: "Avanza Manual", category: "MPV", image: "/images/avanza-v2.png" },
-  { name: "Sirion CVT", category: "Hatchback", image: "/images/sirion-v2.png" },
-  { name: "Innova Reborn CVT", category: "MPV Premium", image: "/images/innova-clean.png" },
-  { name: "Hiace", category: "Minibus", image: "/images/hiace-clean.png" },
+  { name: "Sigra Automatic", category: "City Car", image: "/images/fleet-sigra-card.png", transmission: "Automatic", seats: "5–7 Seat", price: 350000 },
+  { name: "XL7 Automatic", category: "MPV", image: "/images/fleet-xl7-card.png", transmission: "Automatic", seats: "7 Seat", price: 450000 },
+  { name: "Xenia", category: "MPV", image: "/images/fleet-xenia-card.png", transmission: "Automatic", seats: "7 Seat", price: 350000 },
+  { name: "Avanza Manual", category: "MPV", image: "/images/fleet-avanza-card.png", transmission: "Manual", seats: "7 Seat", price: 300000 },
+  { name: "Sirion Automatic", category: "City Car", image: "/images/fleet-sirion-card.png", transmission: "Automatic", seats: "5 Seat", price: 300000 },
+  { name: "Innova Reborn Automatic", category: "Premium", image: "/images/fleet-innova-card.png", transmission: "Automatic", seats: "7 Seat", price: 600000 },
+  { name: "Hiace", category: "Minibus", image: "/images/fleet-hiace-card.png", transmission: "Manual", seats: "Rombongan", price: 1000000 },
 ];
 
 export const featuredFleet = [fleet[0], fleet[1], fleet[5], fleet[6]];
@@ -87,6 +90,29 @@ export const benefits: IconItem[] = [
     title: "Berbasis Surabaya & Sidoarjo",
     description: "Detail titik jemput dan tujuan dikonfirmasi sesuai ketersediaan layanan.",
     icon: MapPin,
+  },
+];
+
+export const experienceBenefits: IconItem[] = [
+  {
+    title: "Armada Bersih & Terawat",
+    description: "Kondisi dan kebersihan kendaraan dipersiapkan sebelum jadwal keberangkatan.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Proses Booking Praktis",
+    description: "Sampaikan unit, tanggal, dan tujuan agar ketersediaan dapat segera dikonfirmasi.",
+    icon: ClipboardCheck,
+  },
+  {
+    title: "Harga Transparan",
+    description: "Harga mulai ditampilkan di katalog dan detail akhir dikonfirmasi sesuai kebutuhan perjalanan.",
+    icon: CircleCheck,
+  },
+  {
+    title: "Konsultasi via WhatsApp",
+    description: "Diskusikan kebutuhan perjalanan langsung bersama tim Azbu Trans Jaya.",
+    icon: MessageCircle,
   },
 ];
 

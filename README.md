@@ -12,7 +12,7 @@ Homepage menggunakan struktur editorial otomotif: hero armada, katalog kendaraan
 - Featured Innova Reborn dengan presentasi sinematik
 - Ringkasan layanan dan alur booking empat langkah
 - Visual area layanan Surabaya, Sidoarjo, dan sekitarnya
-- FAQ accordion yang mendukung keyboard dan atribut ARIA
+- Harga mulai setiap armada yang dikelola terpusat bersama data kendaraan
 - CTA WhatsApp dengan pesan yang dapat dikonfigurasi
 - Sticky navigation, mobile menu, dan floating CTA pada mobile
 - Animasi dengan dukungan `prefers-reduced-motion`
@@ -67,7 +67,7 @@ export const business = {
 
 Gunakan format internasional tanpa tanda `+` untuk nomor WhatsApp, misalnya `6281234567890`. Jika nomor belum diisi, CTA WhatsApp akan diarahkan ke section kontak sehingga website tidak menampilkan nomor palsu.
 
-File yang sama juga menyimpan daftar armada, benefit, layanan, langkah booking, area layanan, FAQ, dan navigasi footer.
+File yang sama juga menyimpan daftar armada beserta harga, benefit, layanan, langkah booking, area layanan, FAQ, dan navigasi footer.
 
 ## Struktur proyek
 
@@ -110,7 +110,7 @@ Pemeriksaan otomatis mencakup viewport desktop `1440×900`, tablet `1024×768`, 
 - gambar rusak
 - error console dan runtime
 - menu mobile
-- FAQ accordion
+- jumlah card armada dan harga katalog utama
 - floating WhatsApp CTA
 
 ## Status konten

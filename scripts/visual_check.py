@@ -54,13 +54,15 @@ def inspect_viewport(browser, name: str, width: int, height: int):
         assert page.get_by_role("navigation", name="Navigasi mobile").is_visible()
         page.get_by_role("button", name="Tutup menu").click()
 
-    faq_button = page.get_by_role("button", name="Apakah tersedia rental dengan driver?")
-    faq_button.click()
-    expect(faq_button).to_have_attribute("aria-expanded", "true")
-    assert page.get_by_text("Ketersediaan layanan dengan driver perlu dikonfirmasi", exact=False).is_visible()
+    expect(page.get_by_role("heading", name="Pilih Kendaraan Sesuai Perjalanan Anda")).to_be_visible()
+    assert page.locator(".fleet-card").count() == 7
+    assert page.get_by_text("Rp350.000", exact=True).first.is_visible()
+    assert page.get_by_text("Rp1.000.000", exact=True).is_visible()
+    assert page.locator(".quick-booking-panel").is_visible()
+    assert page.locator(".trust-strip").is_visible()
 
     page.evaluate("window.scrollTo(0, 700)")
-    page.wait_for_timeout(180)
+    page.wait_for_timeout(450)
     if width <= 640:
         assert page.locator(".mobile-whatsapp").is_visible()
 

@@ -1,40 +1,60 @@
-/* Layout-only layer. Azbu colors, typography, radii, shadows, content, and assets stay in globals.css. */
+/* DriveMate page skeleton using only Azbu Trans Jaya's design system and assets. */
 
 .hero-section {
-  padding-bottom: 58px;
+  padding-bottom: 76px;
+  background-position: center calc(100% + 88px);
 }
 
 .hero-grid {
-  min-height: 650px;
+  grid-template-columns: 43% 57%;
+  min-height: 590px;
 }
 
 .hero-copy {
-  padding-bottom: 88px;
+  padding: 54px 0 86px;
+}
+
+.hero-copy h1 {
+  max-width: 580px;
+  font-size: clamp(48px, 4.4vw, 64px);
+}
+
+.hero-description {
+  max-width: 505px;
+  font-size: 15px;
+}
+
+.hero-visual {
+  margin-right: -5vw;
+}
+
+.hero-fleet-image {
+  object-position: 53% 60%;
+  transform: scale(1.12);
 }
 
 .quick-booking-wrap {
   position: relative;
   z-index: 8;
-  margin-top: -92px;
+  margin-top: -118px;
   pointer-events: none;
 }
 
 .quick-booking-panel {
-  width: min(1120px, 100%);
+  width: min(1080px, 100%);
   margin-inline: auto;
   border: 1px solid var(--border);
   border-radius: 8px;
   background: var(--surface);
   padding: 22px 24px 24px;
-  box-shadow: 0 22px 52px rgba(84, 58, 40, 0.16);
+  box-shadow: 0 24px 55px rgba(84, 58, 40, 0.17);
   pointer-events: auto;
 }
 
 .quick-booking-intro {
   display: flex;
   align-items: baseline;
-  gap: 18px;
-  margin-bottom: 16px;
+  gap: 16px;
 }
 
 .quick-booking-intro strong {
@@ -42,445 +62,648 @@
   font-weight: 800;
 }
 
-.quick-booking-intro span {
+.quick-booking-intro > span {
   color: var(--muted);
-  font-size: 11px;
+  font-size: 10px;
 }
 
-.quick-booking-options {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) 1.2fr;
-  gap: 10px;
-}
-
-.quick-booking-options > a {
+.quick-service-options {
   display: flex;
-  min-width: 0;
-  min-height: 58px;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.quick-service-options a {
+  display: inline-flex;
+  min-height: 34px;
   align-items: center;
-  gap: 10px;
+  gap: 7px;
   border: 1px solid var(--border);
   border-radius: 8px;
   background: #fff;
-  padding: 0 13px;
-  transition: border-color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
+  padding: 0 11px;
+  color: #4a4a4a;
+  font-size: 9px;
+  font-weight: 750;
 }
 
-.quick-booking-options > a:hover {
-  border-color: rgba(201, 39, 44, 0.44);
-  box-shadow: 0 10px 24px rgba(84, 58, 40, 0.08);
-  transform: translateY(-2px);
+.quick-service-options a:first-child {
+  border-color: rgba(201, 39, 44, 0.35);
+  background: var(--light-red);
+  color: var(--primary);
 }
 
-.quick-booking-options svg {
+.quick-service-options svg,
+.quick-booking-fields svg {
   flex: 0 0 auto;
   color: var(--primary);
 }
 
-.quick-booking-options span {
+.quick-booking-fields {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) 1.15fr;
+  gap: 9px;
+  margin-top: 10px;
+}
+
+.quick-booking-fields > a {
+  display: flex;
   min-width: 0;
+  min-height: 52px;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  padding: 0 12px;
+  transition: border-color 200ms ease, transform 200ms ease;
+}
+
+.quick-booking-fields > a:hover {
+  border-color: rgba(201, 39, 44, 0.48);
+  transform: translateY(-2px);
+}
+
+.quick-booking-fields span {
   overflow: hidden;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 750;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.quick-booking-options small {
+.quick-booking-fields small {
   display: block;
-  margin-bottom: 3px;
+  margin-bottom: 2px;
   color: var(--muted);
   font-size: 8px;
   font-weight: 600;
 }
 
-.quick-booking-options .quick-booking-action {
+.quick-booking-fields .quick-booking-action {
   justify-content: center;
   border-color: var(--primary);
   background: var(--primary);
   color: #fff;
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 800;
 }
 
-.quick-booking-options .quick-booking-action svg {
+.quick-booking-fields .quick-booking-action svg {
   color: #fff;
 }
 
-.why-section {
-  border-top: 0;
-  padding-top: 142px;
-  padding-bottom: 58px;
+.trust-strip-wrap {
+  padding: 94px 0 68px;
   background: var(--background);
 }
 
-.why-grid {
-  grid-template-columns: 240px 1fr;
-  gap: 30px;
-}
-
-.benefit-grid {
-  gap: 12px;
-}
-
-.benefit-item {
-  height: 100%;
-  min-height: 148px;
-}
-
-.fleet-section {
-  padding: 70px 0 86px;
-}
-
-.fleet-track {
+.trust-strip {
+  display: grid;
+  width: min(970px, 100%);
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
-  margin-top: 34px;
+  margin-inline: auto;
+  border-radius: 8px;
+  background: var(--foreground);
+  padding: 20px 22px;
+  color: #fff;
+  box-shadow: 0 18px 40px rgba(49, 37, 27, 0.18);
 }
 
-.fleet-card {
+.trust-strip > div {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: 28px 1fr;
+  align-items: center;
+  gap: 10px;
+  border-left: 1px solid rgba(255, 255, 255, 0.13);
+  padding: 0 18px;
+}
+
+.trust-strip > div:first-child {
+  border-left: 0;
+}
+
+.trust-strip svg {
+  color: var(--primary);
+}
+
+.trust-strip strong,
+.trust-strip small {
+  display: block;
+}
+
+.trust-strip strong {
+  overflow: hidden;
+  font-size: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.trust-strip small {
+  overflow: hidden;
+  margin-top: 3px;
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 7px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fleet-catalog-section {
+  padding: 86px 0 102px;
+  background: linear-gradient(180deg, var(--surface), var(--background));
+}
+
+.fleet-catalog-container {
+  width: min(calc(100% - 48px), 1120px);
+}
+
+.fleet-catalog-heading {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr auto;
+  align-items: end;
+  gap: 35px;
+}
+
+.fleet-catalog-heading h2,
+.coverage-copy h2,
+.experience-heading h2 {
+  margin: 0;
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+
+.fleet-catalog-heading > p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.fleet-catalog-heading > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--primary);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.fleet-tabs {
   display: flex;
-  min-height: 330px;
-  flex-direction: column;
+  gap: 7px;
+  margin-top: 28px;
 }
 
-.fleet-image-wrap {
-  height: 190px;
+.fleet-tabs button {
+  min-height: 34px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: transparent;
+  padding: 0 13px;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.fleet-tabs button.active {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: #fff;
+}
+
+.fleet-catalog-section .fleet-track {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.fleet-catalog-section .fleet-track > div {
+  min-width: 0;
+}
+
+.fleet-catalog-section .fleet-card {
+  display: flex;
+  height: 100%;
+  min-height: 380px;
+  flex-direction: column;
+  border-radius: 8px;
+  padding: 10px 10px 12px;
+}
+
+.fleet-catalog-section .fleet-image-wrap {
+  order: 1;
+  height: 204px;
+  margin: 0 0 13px;
+  overflow: hidden;
+  border-radius: 6px;
+  background: var(--light-red);
+}
+
+.fleet-catalog-section .fleet-image {
+  object-fit: cover;
+  object-position: center 47%;
+  padding: 0;
+}
+
+.fleet-card-tags {
+  display: flex !important;
+  order: 0;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.fleet-card-tags span {
+  margin: 0;
+  border-radius: 5px;
+  background: var(--light-red);
+  padding: 4px 6px;
+  color: var(--primary);
+  font-size: 7px;
+  font-weight: 750;
+}
+
+.fleet-card-tags span:first-child {
+  background: var(--primary);
+  color: #fff;
+}
+
+.fleet-catalog-section .fleet-card > strong {
+  order: 2;
+  font-size: 14px;
+}
+
+.fleet-card-meta {
+  order: 3;
+  margin-top: 4px !important;
+  font-size: 8px !important;
+}
+
+.fleet-card-price {
+  display: grid;
+  order: 4;
+  grid-template-columns: auto 1fr;
+  align-items: end;
+  margin-top: 13px;
+}
+
+.fleet-card-price small {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  font-size: 7px;
+}
+
+.fleet-card-price b {
+  color: var(--primary);
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+}
+
+.fleet-card-price span {
+  margin: 0 0 2px 4px;
+  color: var(--muted);
+  font-size: 7px;
 }
 
 .fleet-card-cta {
   display: flex !important;
-  min-height: 42px;
+  order: 5;
+  min-height: 38px;
   align-items: center;
   justify-content: center;
-  gap: 7px;
+  gap: 6px;
   margin-top: auto !important;
   border-radius: 8px;
   background: var(--primary);
   color: #fff !important;
-  font-size: 11px !important;
+  font-size: 9px !important;
   font-weight: 750 !important;
-  transition: background 200ms ease;
-}
-
-.fleet-card:hover .fleet-card-cta {
-  background: var(--primary-dark);
 }
 
 .featured-grid {
-  min-height: 520px;
+  width: min(calc(100% - 48px), 1120px);
+  grid-template-columns: 48% 52%;
+  min-height: 470px;
 }
 
 .featured-media {
-  min-height: 510px;
+  min-height: 460px;
 }
 
-.area-section {
-  min-height: 500px;
+.featured-copy {
+  padding: 56px 0 54px 30px;
 }
 
-.area-grid {
-  min-height: 500px;
+.coverage-section {
+  padding: 100px 0 108px;
+  background: var(--surface);
 }
 
-.services-section {
-  padding: 82px 0 90px;
-}
-
-.services-heading {
+.coverage-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: end;
+  width: min(calc(100% - 48px), 1040px);
+  grid-template-columns: 0.92fr 1.08fr;
+  align-items: center;
+  gap: 64px;
 }
 
-.services-heading > div {
-  max-width: 520px;
+.coverage-map {
+  position: relative;
+  min-height: 390px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 8px 8px 44px 8px;
+  background: var(--background);
+  box-shadow: 18px 20px 0 var(--light-red);
 }
 
-.booking-section {
-  padding: 72px 0 80px;
+.coverage-map > img {
+  object-fit: cover;
 }
 
-.booking-grid {
-  width: min(1120px, 100%);
+.coverage-pins {
+  position: absolute;
+  inset: 0;
+}
+
+.coverage-pins span {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--primary);
+  font-size: 7px;
+  font-weight: 800;
+  transform: translate(-50%, -50%);
+}
+
+.coverage-copy h2 {
+  max-width: 560px;
+}
+
+.coverage-copy > p:not(.section-kicker) {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+.coverage-list {
+  display: grid;
+  grid-template-columns: repeat(2, 145px);
+  gap: 9px 22px;
+  margin-top: 20px;
+}
+
+.coverage-list span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.coverage-list svg {
+  color: var(--primary);
+}
+
+.coverage-cta {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  gap: 8px;
+  margin-top: 25px;
+  border-radius: 8px;
+  background: var(--primary);
+  padding: 0 15px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 750;
+}
+
+.experience-section {
+  padding: 90px 0 72px;
+  background: linear-gradient(180deg, var(--light-red), var(--background));
+}
+
+.experience-heading .section-kicker,
+.booking-heading .section-kicker {
+  justify-content: center;
+}
+
+.experience-grid {
+  width: min(100%, 1040px);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 34px auto 0;
+}
+
+.experience-grid > div {
+  min-width: 0;
+}
+
+.experience-grid .benefit-item {
+  display: block;
+  height: 100%;
+  min-height: 188px;
+  padding: 25px 20px;
+  text-align: center;
+}
+
+.experience-grid .benefit-item > svg {
+  width: 30px;
+}
+
+.experience-grid .benefit-item h3 {
+  margin-top: 13px;
+}
+
+.booking-flow-section {
+  border-top: 0;
+  padding: 42px 0 100px;
+  background: var(--background);
+}
+
+.booking-flow-section .booking-grid {
+  width: min(100%, 1040px);
   margin: 38px auto 0;
 }
 
-.gallery-section {
-  padding-top: 82px;
-  padding-bottom: 92px;
-}
-
-.faq-section {
-  padding-top: 76px;
-  padding-bottom: 64px;
-}
-
 .cta-section {
-  padding-bottom: 54px;
+  padding: 0 0 76px;
+  background: var(--background);
 }
 
-@media (max-width: 1180px) {
-  .hero-grid {
-    min-height: 610px;
-  }
+.cta-banner-large {
+  position: relative;
+  display: grid;
+  min-height: 270px;
+  grid-template-columns: 54% 46%;
+  overflow: hidden;
+  border-radius: 8px;
+  padding: 44px 48px;
+  background: var(--foreground) url("/images/featured-stage.png") center / cover no-repeat;
+}
 
-  .quick-booking-panel {
-    width: min(940px, 100%);
-  }
+.cta-banner-large::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(21, 21, 21, 0.96) 0%, rgba(21, 21, 21, 0.77) 58%, rgba(21, 21, 21, 0.22));
+}
 
-  .quick-booking-options {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+.cta-banner-large .cta-copy {
+  position: relative;
+  z-index: 2;
+}
 
-  .quick-booking-options .quick-booking-action {
-    grid-column: 2;
-  }
+.cta-banner-large .section-kicker {
+  color: var(--primary);
+}
 
-  .why-section {
-    padding-top: 186px;
-  }
+.cta-banner-large .cta-copy h2 {
+  max-width: 500px;
+  font-size: 35px;
+}
 
-  .fleet-track {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
+.cta-banner-large .cta-copy p:not(.section-kicker) {
+  max-width: 420px;
+  margin-top: 10px;
+}
 
-  .benefit-grid {
-    gap: 12px;
-  }
+.cta-banner-large .cta-button {
+  width: max-content;
+  margin-top: 24px;
+}
 
-  .benefit-grid > div,
-  .benefit-grid > div:nth-child(3) {
-    border-left: 0;
-  }
+.cta-vehicle {
+  position: absolute;
+  z-index: 1;
+  top: 3%;
+  right: -4%;
+  bottom: -5%;
+  width: 55%;
+}
+
+.cta-vehicle img {
+  object-fit: contain;
+  object-position: right bottom;
+}
+
+.footer-grid {
+  grid-template-columns: 1.35fr 0.72fr 0.9fr 1.15fr;
+}
+
+@media (max-width: 1100px) {
+  .hero-grid { grid-template-columns: 46% 54%; }
+  .hero-visual { margin-right: -8vw; }
+  .quick-booking-panel { width: min(900px, 100%); }
+  .trust-strip { width: min(860px, 100%); }
+  .fleet-catalog-section .fleet-track { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .trust-strip > div { padding-inline: 12px; }
 }
 
 @media (max-width: 900px) {
-  .hero-section {
-    padding-bottom: 116px;
-  }
-
-  .hero-grid {
-    min-height: auto;
-  }
-
-  .hero-copy {
-    padding-bottom: 12px;
-  }
-
-  .quick-booking-wrap {
-    margin-top: -146px;
-  }
-
-  .quick-booking-panel {
-    width: min(720px, 100%);
-  }
-
-  .why-section {
-    padding-top: 84px;
-  }
-
-  .why-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .why-title h2 span {
-    display: inline;
-  }
-
-  .fleet-track {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .fleet-card {
-    min-height: 328px;
-  }
-
-  .services-heading {
-    display: block;
-  }
+  .hero-section { padding-bottom: 130px; }
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-copy { padding: 38px 0 12px; }
+  .hero-visual { min-height: 420px; margin-right: 0; }
+  .quick-booking-wrap { margin-top: -174px; }
+  .quick-booking-panel { width: min(720px, 100%); }
+  .quick-booking-fields { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .trust-strip-wrap { padding-top: 74px; }
+  .trust-strip { grid-template-columns: repeat(2, 1fr); gap: 18px 0; }
+  .trust-strip > div:nth-child(3) { border-left: 0; }
+  .fleet-catalog-heading { grid-template-columns: 1fr auto; }
+  .fleet-catalog-heading > p { grid-column: 1 / -1; grid-row: 2; max-width: 500px; }
+  .fleet-catalog-section .fleet-track { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .coverage-grid { gap: 40px; }
+  .experience-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 640px) {
   .hero-section {
-    padding-bottom: 36px;
+    padding-bottom: 18px;
     background-position: 56% bottom;
     background-size: auto 430px;
   }
 
-  .hero-copy {
-    padding-top: 32px;
-  }
+  .hero-grid { min-height: auto; padding-top: 16px; }
+  .hero-copy { padding: 32px 0 6px; }
+  .hero-copy h1 { max-width: 355px; font-size: clamp(38px, 11.2vw, 44px); }
+  .hero-description { max-width: 350px; font-size: 15px; }
+  .hero-actions { display: grid; grid-template-columns: 1fr; }
+  .hero-trust { display: grid; grid-template-columns: repeat(2, 1fr); }
+  .hero-trust span:last-child { grid-column: 1 / -1; }
+  .hero-visual { min-height: 305px; }
+  .hero-fleet-image { object-position: 51% 61%; transform: scale(1.07); }
 
-  .hero-copy h1 {
-    max-width: 355px;
-    font-size: clamp(38px, 11.2vw, 44px);
-  }
+  .quick-booking-wrap { margin-top: -16px; }
+  .quick-booking-panel { padding: 19px 16px; }
+  .quick-booking-intro { display: block; }
+  .quick-booking-intro strong { display: block; font-size: 17px; }
+  .quick-booking-intro > span { display: block; margin-top: 5px; line-height: 1.5; }
+  .quick-service-options { display: grid; grid-template-columns: 1fr; }
+  .quick-service-options a { min-height: 42px; }
+  .quick-booking-fields { grid-template-columns: 1fr; }
+  .quick-booking-fields > a { min-height: 54px; }
 
-  .hero-description {
-    max-width: 350px;
-  }
+  .trust-strip-wrap { padding: 22px 0 56px; }
+  .trust-strip { grid-template-columns: 1fr; gap: 0; padding: 10px 18px; }
+  .trust-strip > div,
+  .trust-strip > div:nth-child(3) { min-height: 66px; border-top: 1px solid rgba(255,255,255,.11); border-left: 0; padding-inline: 2px; }
+  .trust-strip > div:first-child { border-top: 0; }
+  .trust-strip strong, .trust-strip small { overflow: visible; text-overflow: clip; white-space: normal; }
+  .trust-strip small { line-height: 1.45; }
 
-  .hero-visual {
-    min-height: 310px;
-  }
+  .fleet-catalog-section { padding: 58px 0 68px; }
+  .fleet-catalog-container { width: calc(100% - 32px); }
+  .fleet-catalog-heading { display: block; }
+  .fleet-catalog-heading h2, .coverage-copy h2, .experience-heading h2 { font-size: 30px; }
+  .fleet-catalog-heading > p { margin-top: 14px; }
+  .fleet-catalog-heading > a { display: none; }
+  .fleet-tabs { width: calc(100% + 16px); overflow-x: auto; padding-bottom: 5px; }
+  .fleet-tabs button { flex: 0 0 auto; }
+  .fleet-catalog-section .fleet-track { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .fleet-catalog-section .fleet-card { min-height: 346px; padding: 8px; }
+  .fleet-catalog-section .fleet-image-wrap { height: 150px; }
+  .fleet-catalog-section .fleet-card > strong { font-size: 12px; }
+  .fleet-card-price b { font-size: 13px; }
+  .fleet-card-cta { min-height: 37px; }
 
-  .hero-fleet-image {
-    object-position: 52% 61%;
-    transform: scale(1.08);
-  }
+  .featured-grid { width: calc(100% - 32px); grid-template-columns: 1fr; min-height: auto; }
+  .featured-media { min-height: 280px; }
+  .featured-image { object-position: center; transform: scale(.98); }
+  .featured-copy { padding: 6px 0 52px; }
 
-  .quick-booking-wrap {
-    margin-top: -28px;
-  }
+  .coverage-section { padding: 64px 0 72px; }
+  .coverage-grid { width: calc(100% - 32px); grid-template-columns: 1fr; gap: 46px; }
+  .coverage-map { min-height: 285px; box-shadow: 10px 12px 0 var(--light-red); }
+  .coverage-copy > p:not(.section-kicker) { font-size: 12px; }
 
-  .quick-booking-panel {
-    padding: 20px 16px;
-    box-shadow: 0 15px 36px rgba(84, 58, 40, 0.13);
-  }
+  .experience-section { padding: 62px 0 54px; }
+  .experience-grid { grid-template-columns: 1fr; gap: 10px; }
+  .experience-grid .benefit-item { display: grid; min-height: 116px; grid-template-columns: 42px 1fr; padding: 20px 16px; text-align: left; }
+  .experience-grid .benefit-item h3 { margin-top: 0; }
 
-  .quick-booking-intro {
-    display: block;
-    margin-bottom: 16px;
-  }
+  .booking-flow-section { padding: 40px 0 70px; }
+  .booking-flow-section .booking-grid { grid-template-columns: 1fr; gap: 0; }
+  .booking-flow-section .booking-grid > div { border-top: 1px solid var(--border); }
+  .booking-flow-section .booking-step { min-height: 116px; grid-template-columns: 44px 1fr; padding: 20px 0; }
+  .booking-flow-section .booking-arrow { top: auto; right: auto; bottom: -13px; left: 8px; transform: rotate(90deg); }
+  .booking-flow-section .booking-grid > div:nth-child(2) .booking-arrow { display: block; }
 
-  .quick-booking-intro strong {
-    display: block;
-    font-size: 17px;
-  }
+  .cta-section { padding: 0 0 28px; }
+  .cta-banner-large { display: block; min-height: 430px; padding: 28px 22px; }
+  .cta-banner-large::after { background: linear-gradient(180deg, rgba(21,21,21,.96) 0%, rgba(21,21,21,.8) 54%, rgba(21,21,21,.18)); }
+  .cta-banner-large .cta-copy h2 { font-size: 29px; }
+  .cta-banner-large .cta-button { width: 100%; }
+  .cta-vehicle { top: 43%; right: -15%; bottom: -5%; width: 130%; }
 
-  .quick-booking-intro span {
-    display: block;
-    margin-top: 5px;
-    line-height: 1.55;
-  }
-
-  .quick-booking-options {
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
-
-  .quick-booking-options > a {
-    min-height: 55px;
-  }
-
-  .quick-booking-options .quick-booking-action {
-    grid-column: auto;
-    min-height: 50px;
-  }
-
-  .why-section {
-    padding: 58px 0 60px;
-  }
-
-  .why-title h2 span {
-    display: block;
-  }
-
-  .benefit-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .benefit-item {
-    display: grid;
-    min-height: 116px;
-    grid-template-columns: 42px 1fr;
-    padding: 20px 16px;
-  }
-
-  .benefit-item h3 {
-    margin-top: 0;
-  }
-
-  .fleet-section {
-    padding: 58px 0 66px;
-  }
-
-  .fleet-heading {
-    align-items: flex-start;
-  }
-
-  .fleet-heading > a {
-    display: none;
-  }
-
-  .fleet-track {
-    display: grid;
-    width: 100%;
-    grid-template-columns: 1fr;
-    gap: 14px;
-    overflow: visible;
-  }
-
-  .fleet-card,
-  .fleet-card:first-child,
-  .fleet-card:last-child {
-    display: grid;
-    min-height: 0;
-    grid-template-columns: 42% 58%;
-    grid-template-rows: auto auto 1fr;
-    padding: 12px;
-  }
-
-  .fleet-image-wrap {
-    grid-row: 1 / 4;
-    height: 148px;
-    margin: 0 12px 0 0;
-  }
-
-  .fleet-card strong {
-    align-self: end;
-    font-size: 16px;
-  }
-
-  .fleet-card > span:not(.fleet-card-cta) {
-    align-self: start;
-  }
-
-  .fleet-card-cta {
-    width: 100%;
-    min-height: 38px;
-    align-self: end;
-    margin-top: 14px !important;
-  }
-
-  .featured-grid {
-    min-height: auto;
-  }
-
-  .featured-media {
-    min-height: 300px;
-  }
-
-  .featured-image {
-    transform: scale(0.98);
-  }
-
-  .featured-copy {
-    padding-top: 8px;
-  }
-
-  .area-section,
-  .area-grid {
-    min-height: 500px;
-  }
-
-  .services-section,
-  .gallery-section {
-    padding-top: 58px;
-    padding-bottom: 64px;
-  }
-
-  .booking-section {
-    padding-top: 56px;
-    padding-bottom: 62px;
-  }
-
-  .booking-step {
-    grid-template-columns: 44px 1fr;
-  }
-
-  .faq-section {
-    padding-top: 56px;
-  }
+  .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }

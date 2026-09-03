@@ -1,4 +1,5 @@
 import { MessageCircle } from "lucide-react";
+import Image from "next/image";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Reveal } from "@/components/Reveal";
 import { whatsappUrl } from "@/lib/data";
@@ -7,17 +8,18 @@ export function CTA() {
   return (
     <section id="kontak" className="cta-section">
       <div className="container-page">
-        <Reveal className="cta-banner">
-          <div className="cta-icon" aria-hidden="true">
-            <MessageCircle size={34} strokeWidth={1.7} />
-          </div>
+        <Reveal className="cta-banner cta-banner-large">
           <div className="cta-copy">
-            <h2>Siap untuk perjalanan nyaman Anda?</h2>
-            <p>Konsultasikan kebutuhan kendaraan Anda bersama Azbu Trans Jaya.</p>
+            <p className="section-kicker">Mulai perjalanan Anda</p>
+            <h2>Siap untuk perjalanan Anda?</h2>
+            <p>Sampaikan tanggal, tujuan, dan kendaraan yang Anda butuhkan.</p>
+            <ButtonLink href={whatsappUrl()} icon={MessageCircle} variant="light" className="cta-button">
+              Booking via WhatsApp
+            </ButtonLink>
           </div>
-          <ButtonLink href={whatsappUrl()} icon={MessageCircle} variant="light" className="cta-button">
-            Chat via WhatsApp Sekarang
-          </ButtonLink>
+          <div className="cta-vehicle" aria-hidden="true">
+            <Image src="/images/hero-fleet-final.png" alt="" fill sizes="(max-width: 767px) 100vw, 48vw" />
+          </div>
         </Reveal>
       </div>
     </section>

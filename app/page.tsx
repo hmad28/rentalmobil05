@@ -1,8 +1,7 @@
 import Image from "next/image";
-import { ArrowRight, Check, Info, MapPin, MessageCircle } from "lucide-react";
+import { ArrowRight, CalendarDays, CarFront, Check, Clock3, MapPin, MessageCircle, ShieldCheck } from "lucide-react";
 import { BookingStep } from "@/components/BookingStep";
 import { CTA } from "@/components/CTA";
-import { FAQItem } from "@/components/FAQ";
 import { FeatureCard } from "@/components/FeatureCard";
 import { FleetCard } from "@/components/FleetCard";
 import { Footer } from "@/components/Footer";
@@ -10,20 +9,20 @@ import { Hero } from "@/components/Hero";
 import { MobileWhatsapp } from "@/components/MobileWhatsapp";
 import { Navbar } from "@/components/Navbar";
 import { Reveal } from "@/components/Reveal";
-import { ServiceCard } from "@/components/ServiceCard";
 import {
   benefits,
   bookingSteps,
   business,
   demoAreas,
-  faqs,
+  experienceBenefits,
   fleet,
   featuredSpecs,
-  gallery,
   schemaFaq,
   services,
   whatsappUrl,
 } from "@/lib/data";
+
+const categories = ["Semua", "City Car", "MPV", "Premium", "Minibus"];
 
 export default function Home() {
   const schemas = [
@@ -34,15 +33,9 @@ export default function Home() {
       legalName: business.legalName,
       url: business.baseUrl,
       areaServed: ["Surabaya", "Sidoarjo"],
-      description:
-        "Azbu Trans Jaya menyediakan layanan rental mobil untuk kebutuhan perjalanan di Surabaya dan Sidoarjo dengan berbagai pilihan armada.",
+      description: "Azbu Trans Jaya menyediakan layanan rental mobil untuk kebutuhan perjalanan di Surabaya dan Sidoarjo dengan berbagai pilihan armada.",
     },
     { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: schemaFaq },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [{ "@type": "ListItem", position: 1, name: "Beranda", item: business.baseUrl }],
-    },
   ];
 
   return (
@@ -51,46 +44,57 @@ export default function Home() {
       <main>
         <Hero />
         <QuickBookingPanel />
-        <WhySection />
+        <TrustStrip />
         <FleetSection />
         <FeaturedVehicle />
-        <ServiceAreaSection />
-        <ServicesSection />
+        <CoverageSection />
+        <ExperienceSection />
         <BookingSection />
-        <GallerySection />
-        <FAQSection />
         <CTA />
       </main>
       <Footer />
       <MobileWhatsapp />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas).replace(/</g, "\\u003c") }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas).replace(/</g, "\\u003c") }} />
     </>
   );
 }
 
 function QuickBookingPanel() {
   return (
-    <section className="quick-booking-wrap" aria-label="Pilihan kebutuhan perjalanan">
+    <section className="quick-booking-wrap" aria-label="Mulai perjalanan Anda">
       <div className="container-page">
         <Reveal className="quick-booking-panel">
           <div className="quick-booking-intro">
-            <strong>Mulai perjalanan Anda</strong>
-            <span>Pilih kebutuhan, lalu konsultasikan detailnya melalui WhatsApp.</span>
+            <strong>Mulai Perjalanan Anda</strong>
+            <span>Pilih layanan dan detail perjalanan, lalu cek ketersediaan melalui WhatsApp.</span>
           </div>
-          <div className="quick-booking-options">
+
+          <div className="quick-service-options">
             {services.map(({ title, icon: Icon }) => (
-              <a href="#layanan" key={title}>
-                <Icon size={19} strokeWidth={1.8} />
-                <span><small>Pilih layanan</small>{title}</span>
-              </a>
+              <a href="#layanan" key={title}><Icon size={18} /><span>{title}</span></a>
             ))}
-            <a href={whatsappUrl()} className="quick-booking-action">
-              <MessageCircle size={18} />Konsultasi kendaraan
-            </a>
           </div>
+
+          <div className="quick-booking-fields">
+            <a href="#armada"><CarFront size={18} /><span><small>Kendaraan</small>Pilih Unit</span></a>
+            <a href={whatsappUrl()}><CalendarDays size={18} /><span><small>Jadwal</small>Pilih Tanggal</span></a>
+            <a href={whatsappUrl()}><MapPin size={18} /><span><small>Perjalanan</small>Masukkan Tujuan</span></a>
+            <a href={whatsappUrl()} className="quick-booking-action"><MessageCircle size={18} />Cek Ketersediaan</a>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+function TrustStrip() {
+  return (
+    <section className="trust-strip-wrap" aria-label="Keunggulan Azbu Trans Jaya">
+      <div className="container-page">
+        <Reveal className="trust-strip">
+          {benefits.map(({ title, description, icon: Icon }) => (
+            <div key={title}><Icon size={23} /><span><strong>{title}</strong><small>{description}</small></span></div>
+          ))}
         </Reveal>
       </div>
     </section>
@@ -99,60 +103,18 @@ function QuickBookingPanel() {
 
 function FleetSection() {
   return (
-    <section id="armada" className="fleet-section">
-      <div className="container-page">
-        <Reveal className="section-heading fleet-heading">
-          <div>
-            <h2>Armada Pilihan</h2>
-            <p>Empat tipe utama untuk kebutuhan personal, keluarga, bisnis, atau rombongan.</p>
-          </div>
-          <a href="#kontak">Lihat semua armada <ArrowRight size={18} /></a>
+    <section id="armada" className="fleet-section fleet-catalog-section">
+      <div className="container-page fleet-catalog-container">
+        <Reveal className="fleet-catalog-heading">
+          <div><p className="section-kicker">Armada rental mobil</p><h2>Pilih Kendaraan<br />Sesuai Perjalanan Anda</h2></div>
+          <p>Pilihan unit untuk perjalanan keluarga, bisnis, airport, wisata, dan rombongan.</p>
+          <a href="#kontak">Lihat semua armada <ArrowRight size={17} /></a>
         </Reveal>
+        <div className="fleet-tabs" aria-label="Kategori kendaraan">
+          {categories.map((category, index) => <button type="button" className={index === 0 ? "active" : ""} key={category}>{category}</button>)}
+        </div>
         <div className="fleet-track no-scrollbar">
-          {fleet.map((vehicle) => <FleetCard key={vehicle.name} {...vehicle} />)}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function GallerySection() {
-  return (
-    <section className="gallery-section" aria-labelledby="gallery-title">
-      <div className="container-page">
-        <Reveal className="gallery-heading">
-          <div>
-            <p className="section-kicker">Armada & Perjalanan</p>
-            <h2 id="gallery-title">Siap Menemani Setiap Rencana Perjalanan</h2>
-          </div>
-          <p>Visual representatif layanan. Dokumentasi unit asli dapat menggantikan galeri ini saat tersedia.</p>
-        </Reveal>
-        <div className="gallery-grid">
-          {gallery.map((item, index) => (
-            <Reveal key={item.image} className={`gallery-item gallery-item-${index + 1}`} delay={index * 0.04}>
-              <Image src={item.image} alt={item.alt} fill sizes="(max-width: 767px) 88vw, 50vw" />
-              <span>{item.label}</span>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function WhySection() {
-  return (
-    <section id="tentang" className="why-section">
-      <div className="container-page why-grid">
-        <Reveal className="why-title">
-          <h2>Kenapa Pilih<span>Azbu Trans Jaya?</span></h2>
-        </Reveal>
-        <div className="benefit-grid">
-          {benefits.map((benefit, index) => (
-            <Reveal key={benefit.title} delay={index * 0.045}>
-              <FeatureCard {...benefit} />
-            </Reveal>
-          ))}
+          {fleet.map((vehicle, index) => <Reveal key={vehicle.name} delay={(index % 4) * 0.035}><FleetCard {...vehicle} /></Reveal>)}
         </div>
       </div>
     </section>
@@ -164,53 +126,56 @@ function FeaturedVehicle() {
     <section className="featured-section">
       <div className="container-page featured-grid">
         <Reveal className="featured-media">
-          <Image
-            src="/images/innova-dark.png"
-            alt="Toyota Innova Reborn CVT warna hitam"
-            fill
-            sizes="(max-width: 767px) 100vw, 50vw"
-            className="featured-image"
-          />
+          <Image src="/images/innova-dark.png" alt="Toyota Innova Reborn CVT warna hitam" fill sizes="(max-width: 767px) 100vw, 50vw" className="featured-image" />
         </Reveal>
         <Reveal className="featured-copy" delay={0.08}>
-          <p className="featured-eyebrow">Vehicle Featured</p>
+          <p className="featured-eyebrow">Premium Armada</p>
           <h2>Innova Reborn CVT</h2>
-          <p className="featured-description">
-            Kabin lega dan nyaman untuk kebutuhan keluarga, perjalanan bisnis, maupun perjalanan luar kota.
-          </p>
+          <p className="featured-description">Kabin lega dan nyaman untuk kebutuhan keluarga, perjalanan bisnis, maupun perjalanan luar kota.</p>
           <div className="featured-specs">
-            {featuredSpecs.map(({ label, icon: Icon }) => (
-              <div key={label}>
-                <Icon size={31} strokeWidth={1.55} />
-                <span>{label}</span>
-              </div>
-            ))}
+            {featuredSpecs.map(({ label, icon: Icon }) => <div key={label}><Icon size={31} strokeWidth={1.55} /><span>{label}</span></div>)}
           </div>
-          <a className="featured-cta" href={whatsappUrl("Halo Azbu Trans Jaya, saya ingin menanyakan ketersediaan Innova Reborn CVT.")}>
-            <MessageCircle size={18} />Tanyakan Ketersediaan<ArrowRight size={18} />
-          </a>
+          <a className="featured-cta" href={whatsappUrl("Halo Azbu Trans Jaya, saya ingin menanyakan ketersediaan Innova Reborn CVT.")}><MessageCircle size={18} />Tanyakan Ketersediaan<ArrowRight size={18} /></a>
         </Reveal>
       </div>
     </section>
   );
 }
 
-function ServicesSection() {
+function CoverageSection() {
   return (
-    <section id="layanan" className="services-section">
-      <div className="container-page">
-        <Reveal className="section-heading services-heading">
-          <div>
-          <h2>Layanan Kami</h2>
-          <p>Tiga kebutuhan utama, dengan detail perjalanan yang dikonsultasikan langsung.</p>
+    <section id="tentang" className="coverage-section">
+      <div className="container-page coverage-grid">
+        <Reveal className="coverage-map">
+          <Image src="/images/service-map-v2.png" alt="Peta area layanan Azbu Trans Jaya" fill sizes="(max-width: 767px) 100vw, 45vw" />
+          <div className="coverage-pins" aria-hidden="true">
+            {demoAreas.map((area) => <span key={area.label} style={{ left: area.left, top: area.top }}><MapPin size={16} fill="currentColor" />{area.label}</span>)}
           </div>
         </Reveal>
-        <div className="services-grid">
-          {services.map((service, index) => (
-            <Reveal key={service.title} delay={index * 0.035}>
-              <ServiceCard {...service} />
-            </Reveal>
-          ))}
+        <Reveal className="coverage-copy" delay={0.08}>
+          <p className="section-kicker">Area layanan Azbu</p>
+          <h2>Rental Mobil Surabaya untuk Perjalanan yang Fleksibel</h2>
+          <p>Detail titik jemput dan tujuan dibahas terlebih dahulu agar kendaraan yang dipilih sesuai kebutuhan perjalanan Anda.</p>
+          <div className="coverage-list">
+            {demoAreas.map((area) => <span key={area.label}><Check size={15} />{area.label}</span>)}
+          </div>
+          <a href={whatsappUrl()} className="coverage-cta">Hubungi Azbu Trans Jaya <ArrowRight size={17} /></a>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+function ExperienceSection() {
+  return (
+    <section id="layanan" className="experience-section">
+      <div className="container-page">
+        <Reveal className="center-heading experience-heading">
+          <p className="section-kicker">Kenapa memilih kami</p>
+          <h2>Pengalaman Rental<br />Mudah, Aman & Nyaman</h2>
+        </Reveal>
+        <div className="benefit-grid experience-grid">
+          {experienceBenefits.map((benefit, index) => <Reveal key={benefit.title} delay={index * 0.04}><FeatureCard {...benefit} /></Reveal>)}
         </div>
       </div>
     </section>
@@ -219,70 +184,11 @@ function ServicesSection() {
 
 function BookingSection() {
   return (
-    <section className="booking-section">
+    <section className="booking-section booking-flow-section">
       <div className="container-page">
-        <Reveal className="center-heading booking-heading">
-          <h2>Cara Booking</h2>
-          <p>Empat langkah sederhana untuk menyiapkan perjalanan Anda.</p>
-        </Reveal>
+        <Reveal className="center-heading booking-heading"><p className="section-kicker">Cara sewa</p><h2>Mudah dalam 4 Langkah</h2></Reveal>
         <div className="booking-grid">
-          {bookingSteps.map((step, index) => (
-            <Reveal key={step.title} delay={index * 0.045}>
-              <BookingStep {...step} index={index} isLast={index === bookingSteps.length - 1} />
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function ServiceAreaSection() {
-  return (
-    <section className="area-section">
-      <Image
-        src="/images/service-map-v2.png"
-        alt="Visual abstrak peta area Surabaya dan Sidoarjo"
-        fill
-        sizes="100vw"
-        className="area-map-image"
-      />
-      <div className="area-scrim" />
-      <div className="container-page area-grid">
-        <Reveal className="area-copy">
-          <p className="section-kicker">Area Layanan</p>
-          <h2>Berangkat dari Surabaya & Sidoarjo</h2>
-          <p>Tujuan perjalanan dan titik jemput lainnya dikonfirmasi terlebih dahulu sesuai ketersediaan layanan.</p>
-          <div className="area-list">
-            {demoAreas.map((area) => (
-              <span key={area.label}><Check size={16} />{area.label}</span>
-            ))}
-          </div>
-          <small><Info size={15} /> Lokasi pada visual adalah demo dan perlu diverifikasi oleh klien.</small>
-        </Reveal>
-        <div className="area-pin-layer" aria-hidden="true">
-          {demoAreas.map((area) => (
-            <div key={area.label} className="map-pin" style={{ left: area.left, top: area.top }}>
-              <MapPin size={21} fill="currentColor" /><span>{area.label}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function FAQSection() {
-  return (
-    <section id="faq" className="faq-section">
-      <div className="container-page">
-        <Reveal className="center-heading faq-heading">
-          <h2>Pertanyaan yang Sering Diajukan</h2>
-          <p>Jawaban umum sebelum Anda menghubungi tim Azbu Trans Jaya.</p>
-        </Reveal>
-        <div className="faq-grid">
-          <div>{faqs.slice(0, 3).map((faq) => <FAQItem key={faq.question} {...faq} />)}</div>
-          <div>{faqs.slice(3).map((faq) => <FAQItem key={faq.question} {...faq} />)}</div>
+          {bookingSteps.map((step, index) => <Reveal key={step.title} delay={index * 0.04}><BookingStep {...step} index={index} isLast={index === bookingSteps.length - 1} /></Reveal>)}
         </div>
       </div>
     </section>
