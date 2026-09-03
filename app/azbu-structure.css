@@ -27,7 +27,7 @@
   }
 }
 
-/* Layer 1: Background Image with controlled visibility (15–20% opacity) */
+/* Layer 1: Rich Surabaya Landmark Scene Background */
 .mobile-hero-bg-layer {
   position: absolute;
   inset: 0;
@@ -39,7 +39,8 @@
 .mobile-hero-bg-img {
   object-fit: cover;
   object-position: center top;
-  opacity: 0.18;
+  opacity: 0.55;
+  filter: contrast(1.05) saturate(1.1);
 }
 
 .mobile-hero-gradient-scrim {
@@ -47,9 +48,10 @@
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(250, 247, 242, 0.5) 0%,
-    rgba(250, 247, 242, 0.3) 35%,
-    rgba(250, 247, 242, 0.7) 70%,
+    rgba(250, 247, 242, 0.72) 0%,
+    rgba(250, 247, 242, 0.35) 32%,
+    rgba(250, 247, 242, 0.15) 58%,
+    rgba(250, 247, 242, 0.85) 88%,
     rgba(250, 247, 242, 1) 100%
   );
 }
@@ -167,13 +169,13 @@
   padding-bottom: 20px;
 }
 
-/* Red Geometric Perspective Road / Platform */
+/* Red Geometric Perspective Road / Platform - Strong Stage Foundation */
 .mobile-hero-red-road {
   position: absolute;
-  left: 3%;
-  right: 3%;
-  bottom: 8px;
-  height: 64px;
+  left: 1%;
+  right: 1%;
+  bottom: 6px;
+  height: 82px;
   z-index: 5;
   pointer-events: none;
 }
@@ -183,24 +185,25 @@
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(201, 39, 44, 0.38) 0%,
-    rgba(201, 39, 44, 0.16) 45%,
-    rgba(201, 39, 44, 0.02) 100%
+    rgba(201, 39, 44, 0.75) 0%,
+    rgba(201, 39, 44, 0.42) 38%,
+    rgba(201, 39, 44, 0.08) 100%
   );
-  border-top: 2px solid rgba(201, 39, 44, 0.7);
-  border-radius: 48px 48px 0 0;
-  transform: perspective(260px) rotateX(32deg);
+  border-top: 3px solid rgba(201, 39, 44, 0.95);
+  border-radius: 56px 56px 0 0;
+  transform: perspective(260px) rotateX(28deg);
+  box-shadow: 0 -4px 20px rgba(201, 39, 44, 0.25);
 }
 
 .mobile-hero-road-glow {
   position: absolute;
-  top: -14px;
-  left: 10%;
-  width: 80%;
-  height: 32px;
+  top: -18px;
+  left: 5%;
+  width: 90%;
+  height: 40px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(201, 39, 44, 0.45) 0%, rgba(201, 39, 44, 0) 70%);
-  filter: blur(12px);
+  background: radial-gradient(circle, rgba(201, 39, 44, 0.6) 0%, rgba(201, 39, 44, 0) 75%);
+  filter: blur(14px);
 }
 
 /* Cars Composition: Significantly enlarged (1.6x-1.8x visual presence) */
@@ -1179,17 +1182,30 @@
   .fleet-catalog-heading > a { display: none; }
   .fleet-tabs { width: calc(100% + 16px); overflow-x: auto; padding-bottom: 5px; }
   .fleet-tabs button { flex: 0 0 auto; }
-  .fleet-catalog-section .fleet-track { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-  .fleet-catalog-section .fleet-card { min-height: 400px; }
-  .fleet-catalog-section .fleet-card-title { font-size: 15px; }
-  .fleet-card-specs { gap: 6px; }
-  .fleet-spec-badge { min-height: 40px; padding: 4px 8px; gap: 7px; border-radius: 8px; }
-  .fleet-spec-icon-box { width: 24px; height: 24px; border-radius: 5px; }
-  .fleet-spec-icon-box svg { width: 12px; height: 12px; }
-  .fleet-spec-label { font-size: 8.5px; }
-  .fleet-spec-val { font-size: 10.5px; }
-  .fleet-card-price-row b { font-size: 15px; }
-  .fleet-card-cta-btn { min-height: 38px; font-size: 11px; }
+  .fleet-catalog-section .fleet-track { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .fleet-catalog-section .fleet-card { min-height: auto; }
+  .fleet-catalog-section .fleet-card-title { font-size: 16px; }
+  .fleet-card-specs { gap: 8px; }
+  .fleet-spec-badge { min-height: 44px; padding: 6px 10px; gap: 8px; border-radius: 9px; }
+  .fleet-spec-icon-box { width: 26px; height: 26px; border-radius: 6px; }
+  .fleet-spec-icon-box svg { width: 13px; height: 13px; }
+  .fleet-spec-label { font-size: 9px; }
+  .fleet-spec-val { font-size: 11px; }
+  .fleet-card-price-row b { font-size: 16px; }
+  .fleet-card-cta-btn { min-height: 44px; font-size: 12px; }
+
+@media (max-width: 520px) {
+  .fleet-catalog-section .fleet-track { grid-template-columns: 1fr; gap: 18px; }
+  .fleet-catalog-section .fleet-card { max-width: 100%; }
+  .fleet-catalog-section .fleet-card-title { font-size: 18px; }
+  .fleet-spec-badge { min-height: 46px; padding: 8px 12px; gap: 10px; }
+  .fleet-spec-icon-box { width: 28px; height: 28px; }
+  .fleet-spec-icon-box svg { width: 14px; height: 14px; }
+  .fleet-spec-label { font-size: 9.5px; }
+  .fleet-spec-val { font-size: 12px; }
+  .fleet-card-price-row b { font-size: 18px; }
+  .fleet-card-cta-btn { min-height: 46px; font-size: 13px; }
+}
 
   .featured-grid { width: calc(100% - 32px); grid-template-columns: 1fr; min-height: auto; }
   .featured-media { min-height: 280px; }

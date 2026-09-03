@@ -4,7 +4,7 @@ import type { FleetVehicle } from "@/lib/data";
 import { whatsappUrl } from "@/lib/data";
 
 export function FleetCard({ name, image, transmission, seats, price }: FleetVehicle) {
-  const bookingMessage = `Halo Azbu Trans Jaya, saya ingin booking unit ${name}. Bisa minta informasi ketersediaan?`;
+  const bookingMessage = `Halo Azbu Trans Jaya, saya melihat dari website dan ingin memesan unit armada ${name}. Apakah unit masih tersedia untuk jadwal sewa?`;
 
   return (
     <article className="fleet-card">

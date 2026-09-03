@@ -18,19 +18,20 @@ import {
 export const business = {
   name: "Azbu Trans Jaya",
   legalName: "PT Azbu Trans Jaya",
-  whatsapp: "",
-  phone: "",
+  whatsapp: "085655221633",
+  phone: "085655221633",
   email: "",
-  address: "",
+  address: "Surabaya & Sidoarjo, Jawa Timur",
   instagram: "",
   baseUrl: "https://azbutransjaya.com",
 };
 
 export const generalWhatsappMessage =
-  "Halo Azbu Trans Jaya, saya ingin menanyakan ketersediaan rental mobil.";
+  "Halo Azbu Trans Jaya, saya melihat dari website dan ingin menanyakan ketersediaan rental mobil.";
 
 export function whatsappUrl(message = generalWhatsappMessage) {
-  const number = business.whatsapp.replace(/\D/g, "");
+  const digits = business.whatsapp.replace(/\D/g, "");
+  const number = digits.startsWith("0") ? `62${digits.slice(1)}` : digits;
   return number
     ? `https://wa.me/${number}?text=${encodeURIComponent(message)}`
     : "#kontak";

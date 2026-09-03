@@ -138,7 +138,7 @@ function FeaturedVehicle() {
           <div className="featured-specs">
             {featuredSpecs.map(({ label, icon: Icon }) => <div key={label}><Icon size={31} strokeWidth={1.55} /><span>{label}</span></div>)}
           </div>
-          <a className="featured-cta" href={whatsappUrl("Halo Azbu Trans Jaya, saya ingin menanyakan ketersediaan Innova Reborn CVT.")}><MessageCircle size={18} />Tanyakan Ketersediaan<ArrowRight size={18} /></a>
+          <a className="featured-cta" href={whatsappUrl("Halo Azbu Trans Jaya, saya melihat dari website dan ingin menanyakan ketersediaan armada Innova Reborn CVT.")}><MessageCircle size={18} />Tanyakan Ketersediaan<ArrowRight size={18} /></a>
         </Reveal>
       </div>
     </section>
