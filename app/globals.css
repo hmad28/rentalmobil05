@@ -384,22 +384,12 @@ button {
   transform: scale(1.035);
 }
 
-.fleet-card strong,
-.fleet-card span {
+/* Card typography fallback */
+.fleet-card-title {
   display: block;
-}
-
-.fleet-card strong {
   font-size: 17px;
   font-weight: 800;
   line-height: 1.35;
-}
-
-.fleet-card span {
-  margin-top: 5px;
-  color: var(--muted);
-  font-size: 12px;
-  font-weight: 600;
 }
 
 .gallery-section {
