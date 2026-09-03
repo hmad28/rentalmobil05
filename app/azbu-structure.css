@@ -39,21 +39,11 @@
 .mobile-hero-bg-img {
   object-fit: cover;
   object-position: center top;
-  opacity: 0.38;
-  filter: contrast(1.02);
+  opacity: 1;
 }
 
 .mobile-hero-gradient-scrim {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(250, 247, 242, 0.75) 0%,
-    rgba(250, 247, 242, 0.4) 30%,
-    rgba(250, 247, 242, 0.2) 55%,
-    rgba(250, 247, 242, 0.75) 85%,
-    rgba(250, 247, 242, 1) 100%
-  );
+  display: none;
 }
 
 /* ZONE A: Content Area (Top to Middle) */
