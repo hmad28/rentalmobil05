@@ -1169,14 +1169,14 @@ button {
 
   .menu-toggle {
     display: grid;
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
     place-items: center;
     border: 1px solid rgba(21, 21, 21, 0.1);
-    border-radius: 12px;
+    border-radius: 10px;
     background: rgba(255, 255, 255, 0.95);
     color: #151515;
-    box-shadow: 0 4px 14px rgba(49, 37, 27, 0.06);
+    box-shadow: 0 3px 10px rgba(49, 37, 27, 0.05);
     backdrop-filter: blur(8px);
   }
 
@@ -1330,7 +1330,7 @@ button {
   }
 
   :root {
-    --header-height: 66px;
+    --header-height: 62px;
   }
 
   .container-page {

@@ -27,7 +27,7 @@ export function Hero() {
           <div className="mobile-hero-gradient-scrim" />
         </div>
 
-        {/* Layer 2: Top to Middle Content Area */}
+        {/* ZONE A: Content Area (Top to Middle) */}
         <div className="mobile-hero-content">
           <p className="mobile-hero-eyebrow">
             Rental Mobil Surabaya & Sidoarjo
@@ -54,35 +54,38 @@ export function Hero() {
 
           <div className="mobile-hero-trust-chips">
             <span className="mobile-trust-chip">
-              <ShieldCheck size={14} className="mobile-trust-icon" />
+              <ShieldCheck size={13} className="mobile-trust-icon" />
               Armada Terawat
             </span>
             <span className="mobile-trust-chip">
-              <CarFront size={14} className="mobile-trust-icon" />
+              <CarFront size={13} className="mobile-trust-icon" />
               Pilihan Lengkap
             </span>
             <span className="mobile-trust-chip">
-              <MapPin size={14} className="mobile-trust-icon" />
+              <MapPin size={13} className="mobile-trust-icon" />
               Siap Surabaya & Sidoarjo
             </span>
           </div>
         </div>
 
-        {/* Layer 3: Car Showcase with Red Geometric Platform */}
+        {/* ZONE B: Visual Stage (3 Large Cars + Red Platform / Road) */}
         <div className="mobile-hero-showcase">
+          {/* Red geometric perspective road / platform under vehicles */}
+          <div className="mobile-hero-red-road" aria-hidden="true">
+            <div className="mobile-hero-road-glow" />
+            <div className="mobile-hero-road-surface" />
+          </div>
+
+          {/* Cars Composition */}
           <div className="mobile-hero-fleet-wrap">
             <Image
               src="/images/hero-fleet-final.png"
               alt="Toyota Innova Reborn, Suzuki XL7, dan Toyota Hiace Azbu Trans Jaya"
               fill
               priority
-              sizes="100vw"
+              sizes="(max-width: 767px) 120vw, 50vw"
               className="mobile-hero-fleet-img"
             />
-          </div>
-          {/* Red geometric platform / red road baseline */}
-          <div className="mobile-hero-red-platform" aria-hidden="true">
-            <div className="mobile-hero-platform-glow" />
           </div>
         </div>
       </div>
