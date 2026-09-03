@@ -351,9 +351,9 @@ button {
   min-width: 0;
   overflow: hidden;
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 16px;
   background: #fff;
-  padding: 16px 16px 18px;
+  padding: 0;
   box-shadow: 0 10px 30px rgba(49, 37, 27, 0.045);
   transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
 }
@@ -366,15 +366,18 @@ button {
 
 .fleet-image-wrap {
   position: relative;
-  height: 190px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  height: auto;
   margin-bottom: 15px;
-  background: linear-gradient(180deg, #faf7f2, rgba(250, 247, 242, 0));
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 38%, #fff5f4 0%, #fbe9e8 60%, #f7d5d4 100%);
 }
 
 .fleet-image {
-  object-fit: contain;
-  object-position: center bottom;
-  transition: transform 260ms ease;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 350ms ease;
 }
 
 .fleet-card:hover .fleet-image {
@@ -1432,13 +1435,9 @@ button {
     scroll-snap-type: x mandatory;
   }
 
-  .fleet-card,
-  .fleet-card:first-child,
-  .fleet-card:last-child {
-    flex: 0 0 78vw;
-    padding: 14px 14px 16px;
-    border: 1px solid var(--border);
-    scroll-snap-align: start;
+  .fleet-catalog-section .fleet-card {
+    padding: 0;
+    flex: initial;
   }
 
   .fleet-card:first-child {
@@ -1446,7 +1445,9 @@ button {
   }
 
   .fleet-image-wrap {
-    height: 178px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto;
   }
 
   .gallery-section {
