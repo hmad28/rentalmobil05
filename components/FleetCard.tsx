@@ -16,7 +16,6 @@ export function FleetCard({ name, image, transmission, seats, price }: FleetVehi
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
           className="fleet-image"
         />
-        <span className="fleet-badge-status">Tersedia</span>
       </div>
 
       <div className="fleet-card-body">
