@@ -1179,13 +1179,15 @@ button {
 
   .menu-toggle {
     display: grid;
-    width: 42px;
-    height: 42px;
+    width: 44px;
+    height: 44px;
     place-items: center;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    background: #fff;
+    border: 1px solid rgba(21, 21, 21, 0.1);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.95);
     color: #151515;
+    box-shadow: 0 4px 14px rgba(49, 37, 27, 0.06);
+    backdrop-filter: blur(8px);
   }
 
   .mobile-menu {

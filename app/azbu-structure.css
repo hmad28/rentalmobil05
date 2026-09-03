@@ -1,5 +1,207 @@
-/* DriveMate page skeleton using only Azbu Trans Jaya's design system and assets. */
+/* ===== DEDICATED MOBILE HERO SYSTEM ===== */
+.mobile-hero-container {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 24px 20px 0;
+}
 
+@media (min-width: 768px) {
+  .mobile-hero-container {
+    display: none !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .desktop-hero-grid {
+    display: none !important;
+  }
+
+  .hero-section {
+    background-image: none !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+/* Layer 1: Background Image & Soft Atmosphere */
+.mobile-hero-bg-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.mobile-hero-bg-img {
+  object-fit: cover;
+  object-position: center top;
+  opacity: 0.35;
+}
+
+.mobile-hero-gradient-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(250, 247, 242, 0.65) 0%,
+    rgba(250, 247, 242, 0.45) 40%,
+    rgba(250, 247, 242, 0.85) 75%,
+    rgba(250, 247, 242, 1) 100%
+  );
+}
+
+/* Layer 2: Content Area (Top to Middle) */
+.mobile-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: left;
+}
+
+.mobile-hero-eyebrow {
+  display: inline-block;
+  margin: 0 0 16px;
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.mobile-hero-title {
+  margin: 0;
+  color: var(--foreground);
+  font-size: clamp(40px, 11vw, 46px);
+  font-weight: 850;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.mobile-hero-title span {
+  color: var(--primary);
+}
+
+.mobile-hero-desc {
+  max-width: 360px;
+  margin: 18px 0 0;
+  color: #555;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* Stacked 2 Buttons */
+.mobile-hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.mobile-hero-actions .button-link {
+  display: flex;
+  width: 100%;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 750;
+}
+
+.mobile-hero-btn-primary {
+  background: var(--primary) !important;
+  color: #fff !important;
+  box-shadow: 0 10px 24px rgba(201, 39, 44, 0.28);
+}
+
+.mobile-hero-btn-secondary {
+  border: 1px solid rgba(21, 21, 21, 0.15) !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: var(--foreground) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+/* Compact Rounded Trust Chips */
+.mobile-hero-trust-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.mobile-trust-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid rgba(234, 226, 216, 0.9);
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.88);
+  padding: 6px 12px;
+  color: #333;
+  font-size: 12px;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  backdrop-filter: blur(8px);
+}
+
+.mobile-trust-icon {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+/* Layer 3: Vehicle Showcase with Red Geometric Platform */
+.mobile-hero-showcase {
+  position: relative;
+  z-index: 2;
+  width: calc(100% + 40px);
+  margin-right: -20px;
+  margin-bottom: 0;
+  margin-left: -20px;
+  margin-top: 32px;
+  padding-bottom: 30px;
+}
+
+.mobile-hero-fleet-wrap {
+  position: relative;
+  width: 100%;
+  height: 230px;
+  z-index: 3;
+}
+
+.mobile-hero-fleet-img {
+  object-fit: contain;
+  object-position: center bottom;
+  transform: scale(1.08);
+}
+
+.mobile-hero-red-platform {
+  position: absolute;
+  right: 0;
+  bottom: 12px;
+  left: 0;
+  height: 48px;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(201, 39, 44, 0.22) 0%, rgba(201, 39, 44, 0.04) 100%);
+  border-top: 2px solid rgba(201, 39, 44, 0.5);
+  transform: perspective(300px) rotateX(25deg);
+  border-radius: 40px 40px 0 0;
+}
+
+.mobile-hero-platform-glow {
+  position: absolute;
+  top: -12px;
+  left: 15%;
+  width: 70%;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(201, 39, 44, 0.35);
+  filter: blur(14px);
+}
+
+/* ===== DESKTOP HERO SYSTEM ===== */
 .hero-section {
   padding-bottom: 76px;
   background-position: center calc(100% + 88px);
@@ -419,22 +621,28 @@
 
 .fleet-card-specs {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 12px;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
 }
 
 .fleet-spec-item {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #faf7f2;
+  padding: 5px 10px;
+  color: #444;
   font-size: 11px;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 .fleet-spec-item svg {
   color: var(--primary);
+  flex-shrink: 0;
 }
 
 .fleet-card-price-row {
@@ -842,20 +1050,9 @@
 
 @media (max-width: 640px) {
   .hero-section {
-    padding-bottom: 18px;
-    background-position: 56% bottom;
-    background-size: auto 430px;
+    padding-bottom: 0;
+    background: transparent;
   }
-
-  .hero-grid { min-height: auto; padding-top: 16px; }
-  .hero-copy { padding: 32px 0 6px; }
-  .hero-copy h1 { max-width: 355px; font-size: clamp(38px, 11.2vw, 44px); }
-  .hero-description { max-width: 350px; font-size: 15px; }
-  .hero-actions { display: grid; grid-template-columns: 1fr; }
-  .hero-trust { display: grid; grid-template-columns: repeat(2, 1fr); }
-  .hero-trust span:last-child { grid-column: 1 / -1; }
-  .hero-visual { min-height: 305px; }
-  .hero-fleet-image { object-position: 51% 61%; transform: scale(1.07); }
 
   .quick-booking-wrap { margin-top: -16px; }
   .quick-booking-panel { padding: 19px 16px; }

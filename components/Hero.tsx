@@ -12,7 +12,83 @@ export function Hero() {
 
   return (
     <section id="beranda" className="hero-section">
-      <div className="container-page hero-grid">
+      {/* ===== MOBILE DEDICATED HERO (visible on <= 767px) ===== */}
+      <div className="mobile-hero-container">
+        {/* Layer 1: Background Image with soft Surabaya landmark & skyline */}
+        <div className="mobile-hero-bg-layer" aria-hidden="true">
+          <Image
+            src="/images/hero-bg-surabaya-mobile.png"
+            alt="Surabaya Landmark Background"
+            fill
+            priority
+            sizes="100vw"
+            className="mobile-hero-bg-img"
+          />
+          <div className="mobile-hero-gradient-scrim" />
+        </div>
+
+        {/* Layer 2: Top to Middle Content Area */}
+        <div className="mobile-hero-content">
+          <p className="mobile-hero-eyebrow">
+            Rental Mobil Surabaya & Sidoarjo
+          </p>
+
+          <h1 className="mobile-hero-title">
+            Rental Mobil<br />
+            <span>Surabaya &</span><br />
+            Sidoarjo
+          </h1>
+
+          <p className="mobile-hero-desc">
+            Armada terawat untuk perjalanan harian, airport, wisata, dan kebutuhan keluarga.
+          </p>
+
+          <div className="mobile-hero-actions">
+            <ButtonLink href="#armada" icon={CarFront} className="mobile-hero-btn-primary">
+              Lihat Armada
+            </ButtonLink>
+            <ButtonLink href={whatsappUrl()} icon={MessageCircle} variant="secondary" className="mobile-hero-btn-secondary">
+              Booking via WhatsApp
+            </ButtonLink>
+          </div>
+
+          <div className="mobile-hero-trust-chips">
+            <span className="mobile-trust-chip">
+              <ShieldCheck size={14} className="mobile-trust-icon" />
+              Armada Terawat
+            </span>
+            <span className="mobile-trust-chip">
+              <CarFront size={14} className="mobile-trust-icon" />
+              Pilihan Lengkap
+            </span>
+            <span className="mobile-trust-chip">
+              <MapPin size={14} className="mobile-trust-icon" />
+              Siap Surabaya & Sidoarjo
+            </span>
+          </div>
+        </div>
+
+        {/* Layer 3: Car Showcase with Red Geometric Platform */}
+        <div className="mobile-hero-showcase">
+          <div className="mobile-hero-fleet-wrap">
+            <Image
+              src="/images/hero-fleet-final.png"
+              alt="Toyota Innova Reborn, Suzuki XL7, dan Toyota Hiace Azbu Trans Jaya"
+              fill
+              priority
+              sizes="100vw"
+              className="mobile-hero-fleet-img"
+            />
+          </div>
+          {/* Red geometric platform / red road baseline */}
+          <div className="mobile-hero-red-platform" aria-hidden="true">
+            <div className="mobile-hero-platform-glow" />
+          </div>
+        </div>
+      </div>
+
+      {/* ===== DESKTOP HERO (visible on >= 768px) ===== */}
+      <div className="container-page hero-grid desktop-hero-grid">
         <div className="hero-copy">
           <motion.p
             initial={initial}
