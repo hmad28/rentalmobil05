@@ -1,0 +1,486 @@
+/* Layout-only layer. Azbu colors, typography, radii, shadows, content, and assets stay in globals.css. */
+
+.hero-section {
+  padding-bottom: 58px;
+}
+
+.hero-grid {
+  min-height: 650px;
+}
+
+.hero-copy {
+  padding-bottom: 88px;
+}
+
+.quick-booking-wrap {
+  position: relative;
+  z-index: 8;
+  margin-top: -92px;
+  pointer-events: none;
+}
+
+.quick-booking-panel {
+  width: min(1120px, 100%);
+  margin-inline: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  padding: 22px 24px 24px;
+  box-shadow: 0 22px 52px rgba(84, 58, 40, 0.16);
+  pointer-events: auto;
+}
+
+.quick-booking-intro {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+
+.quick-booking-intro strong {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.quick-booking-intro span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.quick-booking-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) 1.2fr;
+  gap: 10px;
+}
+
+.quick-booking-options > a {
+  display: flex;
+  min-width: 0;
+  min-height: 58px;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #fff;
+  padding: 0 13px;
+  transition: border-color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
+}
+
+.quick-booking-options > a:hover {
+  border-color: rgba(201, 39, 44, 0.44);
+  box-shadow: 0 10px 24px rgba(84, 58, 40, 0.08);
+  transform: translateY(-2px);
+}
+
+.quick-booking-options svg {
+  flex: 0 0 auto;
+  color: var(--primary);
+}
+
+.quick-booking-options span {
+  min-width: 0;
+  overflow: hidden;
+  font-size: 11px;
+  font-weight: 750;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.quick-booking-options small {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--muted);
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.quick-booking-options .quick-booking-action {
+  justify-content: center;
+  border-color: var(--primary);
+  background: var(--primary);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.quick-booking-options .quick-booking-action svg {
+  color: #fff;
+}
+
+.why-section {
+  border-top: 0;
+  padding-top: 142px;
+  padding-bottom: 58px;
+  background: var(--background);
+}
+
+.why-grid {
+  grid-template-columns: 240px 1fr;
+  gap: 30px;
+}
+
+.benefit-grid {
+  gap: 12px;
+}
+
+.benefit-item {
+  height: 100%;
+  min-height: 148px;
+}
+
+.fleet-section {
+  padding: 70px 0 86px;
+}
+
+.fleet-track {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 34px;
+}
+
+.fleet-card {
+  display: flex;
+  min-height: 330px;
+  flex-direction: column;
+}
+
+.fleet-image-wrap {
+  height: 190px;
+}
+
+.fleet-card-cta {
+  display: flex !important;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-top: auto !important;
+  border-radius: 8px;
+  background: var(--primary);
+  color: #fff !important;
+  font-size: 11px !important;
+  font-weight: 750 !important;
+  transition: background 200ms ease;
+}
+
+.fleet-card:hover .fleet-card-cta {
+  background: var(--primary-dark);
+}
+
+.featured-grid {
+  min-height: 520px;
+}
+
+.featured-media {
+  min-height: 510px;
+}
+
+.area-section {
+  min-height: 500px;
+}
+
+.area-grid {
+  min-height: 500px;
+}
+
+.services-section {
+  padding: 82px 0 90px;
+}
+
+.services-heading {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+}
+
+.services-heading > div {
+  max-width: 520px;
+}
+
+.booking-section {
+  padding: 72px 0 80px;
+}
+
+.booking-grid {
+  width: min(1120px, 100%);
+  margin: 38px auto 0;
+}
+
+.gallery-section {
+  padding-top: 82px;
+  padding-bottom: 92px;
+}
+
+.faq-section {
+  padding-top: 76px;
+  padding-bottom: 64px;
+}
+
+.cta-section {
+  padding-bottom: 54px;
+}
+
+@media (max-width: 1180px) {
+  .hero-grid {
+    min-height: 610px;
+  }
+
+  .quick-booking-panel {
+    width: min(940px, 100%);
+  }
+
+  .quick-booking-options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .quick-booking-options .quick-booking-action {
+    grid-column: 2;
+  }
+
+  .why-section {
+    padding-top: 186px;
+  }
+
+  .fleet-track {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .benefit-grid {
+    gap: 12px;
+  }
+
+  .benefit-grid > div,
+  .benefit-grid > div:nth-child(3) {
+    border-left: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-section {
+    padding-bottom: 116px;
+  }
+
+  .hero-grid {
+    min-height: auto;
+  }
+
+  .hero-copy {
+    padding-bottom: 12px;
+  }
+
+  .quick-booking-wrap {
+    margin-top: -146px;
+  }
+
+  .quick-booking-panel {
+    width: min(720px, 100%);
+  }
+
+  .why-section {
+    padding-top: 84px;
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .why-title h2 span {
+    display: inline;
+  }
+
+  .fleet-track {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .fleet-card {
+    min-height: 328px;
+  }
+
+  .services-heading {
+    display: block;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-section {
+    padding-bottom: 36px;
+    background-position: 56% bottom;
+    background-size: auto 430px;
+  }
+
+  .hero-copy {
+    padding-top: 32px;
+  }
+
+  .hero-copy h1 {
+    max-width: 355px;
+    font-size: clamp(38px, 11.2vw, 44px);
+  }
+
+  .hero-description {
+    max-width: 350px;
+  }
+
+  .hero-visual {
+    min-height: 310px;
+  }
+
+  .hero-fleet-image {
+    object-position: 52% 61%;
+    transform: scale(1.08);
+  }
+
+  .quick-booking-wrap {
+    margin-top: -28px;
+  }
+
+  .quick-booking-panel {
+    padding: 20px 16px;
+    box-shadow: 0 15px 36px rgba(84, 58, 40, 0.13);
+  }
+
+  .quick-booking-intro {
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .quick-booking-intro strong {
+    display: block;
+    font-size: 17px;
+  }
+
+  .quick-booking-intro span {
+    display: block;
+    margin-top: 5px;
+    line-height: 1.55;
+  }
+
+  .quick-booking-options {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .quick-booking-options > a {
+    min-height: 55px;
+  }
+
+  .quick-booking-options .quick-booking-action {
+    grid-column: auto;
+    min-height: 50px;
+  }
+
+  .why-section {
+    padding: 58px 0 60px;
+  }
+
+  .why-title h2 span {
+    display: block;
+  }
+
+  .benefit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .benefit-item {
+    display: grid;
+    min-height: 116px;
+    grid-template-columns: 42px 1fr;
+    padding: 20px 16px;
+  }
+
+  .benefit-item h3 {
+    margin-top: 0;
+  }
+
+  .fleet-section {
+    padding: 58px 0 66px;
+  }
+
+  .fleet-heading {
+    align-items: flex-start;
+  }
+
+  .fleet-heading > a {
+    display: none;
+  }
+
+  .fleet-track {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    overflow: visible;
+  }
+
+  .fleet-card,
+  .fleet-card:first-child,
+  .fleet-card:last-child {
+    display: grid;
+    min-height: 0;
+    grid-template-columns: 42% 58%;
+    grid-template-rows: auto auto 1fr;
+    padding: 12px;
+  }
+
+  .fleet-image-wrap {
+    grid-row: 1 / 4;
+    height: 148px;
+    margin: 0 12px 0 0;
+  }
+
+  .fleet-card strong {
+    align-self: end;
+    font-size: 16px;
+  }
+
+  .fleet-card > span:not(.fleet-card-cta) {
+    align-self: start;
+  }
+
+  .fleet-card-cta {
+    width: 100%;
+    min-height: 38px;
+    align-self: end;
+    margin-top: 14px !important;
+  }
+
+  .featured-grid {
+    min-height: auto;
+  }
+
+  .featured-media {
+    min-height: 300px;
+  }
+
+  .featured-image {
+    transform: scale(0.98);
+  }
+
+  .featured-copy {
+    padding-top: 8px;
+  }
+
+  .area-section,
+  .area-grid {
+    min-height: 500px;
+  }
+
+  .services-section,
+  .gallery-section {
+    padding-top: 58px;
+    padding-bottom: 64px;
+  }
+
+  .booking-section {
+    padding-top: 56px;
+    padding-bottom: 62px;
+  }
+
+  .booking-step {
+    grid-template-columns: 44px 1fr;
+  }
+
+  .faq-section {
+    padding-top: 56px;
+  }
+}

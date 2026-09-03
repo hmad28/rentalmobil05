@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import type { FleetVehicle } from "@/lib/data";
 
 export function FleetCard({ name, category, image }: FleetVehicle) {
@@ -19,6 +20,7 @@ export function FleetCard({ name, category, image }: FleetVehicle) {
       </div>
       <strong>{name}</strong>
       <span>{category}</span>
+      <span className="fleet-card-cta">Tanyakan ketersediaan <ArrowRight size={15} /></span>
     </a>
   );
 }

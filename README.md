@@ -75,7 +75,8 @@ File yang sama juga menyimpan daftar armada, benefit, layanan, langkah booking, 
 app/
   layout.tsx         Root layout, font, dan metadata
   page.tsx           Komposisi homepage dan structured data
-  globals.css        Design tokens, layout, dan responsive styling
+  globals.css        Design system dan styling dasar Azbu
+  azbu-structure.css Layout, composition, dan responsive behavior homepage
   robots.ts          Konfigurasi crawler
   sitemap.ts         Sitemap
 components/
