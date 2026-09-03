@@ -46,13 +46,13 @@ export type FleetVehicle = {
 };
 
 export const fleet: FleetVehicle[] = [
-  { name: "Sigra Automatic", category: "City Car", image: "/images/fleet-sigra-card.png", transmission: "Automatic", seats: "5–7 Seat", price: 350000 },
-  { name: "XL7 Automatic", category: "MPV", image: "/images/fleet-xl7-card.png", transmission: "Automatic", seats: "7 Seat", price: 450000 },
-  { name: "Xenia", category: "MPV", image: "/images/fleet-xenia-card.png", transmission: "Automatic", seats: "7 Seat", price: 350000 },
-  { name: "Avanza Manual", category: "MPV", image: "/images/fleet-avanza-card.png", transmission: "Manual", seats: "7 Seat", price: 300000 },
-  { name: "Sirion Automatic", category: "City Car", image: "/images/fleet-sirion-card.png", transmission: "Automatic", seats: "5 Seat", price: 300000 },
-  { name: "Innova Reborn Automatic", category: "Premium", image: "/images/fleet-innova-card.png", transmission: "Automatic", seats: "7 Seat", price: 600000 },
-  { name: "Hiace", category: "Minibus", image: "/images/fleet-hiace-card.png", transmission: "Manual", seats: "Rombongan", price: 1000000 },
+  { name: "Sigra Automatic", category: "City Car", image: "/images/sigra.png", transmission: "Automatic", seats: "5–7 Seat", price: 350000 },
+  { name: "XL7 Automatic", category: "MPV", image: "/images/xl7-clean.png", transmission: "Automatic", seats: "7 Seat", price: 450000 },
+  { name: "Xenia", category: "MPV", image: "/images/xenia-v2.png", transmission: "Automatic", seats: "7 Seat", price: 350000 },
+  { name: "Avanza Manual", category: "MPV", image: "/images/avanza-v2.png", transmission: "Manual", seats: "7 Seat", price: 300000 },
+  { name: "Sirion Automatic", category: "City Car", image: "/images/sirion-v2.png", transmission: "Automatic", seats: "5 Seat", price: 300000 },
+  { name: "Innova Reborn Automatic", category: "Premium", image: "/images/innova-clean.png", transmission: "Automatic", seats: "7 Seat", price: 600000 },
+  { name: "Hiace", category: "Minibus", image: "/images/hiace-clean.png", transmission: "Manual", seats: "Rombongan", price: 1000000 },
 ];
 
 export const featuredFleet = [fleet[0], fleet[1], fleet[5], fleet[6]];

@@ -2,6 +2,7 @@ import Image from "next/image";
 import { ArrowRight, CalendarDays, CarFront, Check, Clock3, MapPin, MessageCircle, ShieldCheck } from "lucide-react";
 import { BookingStep } from "@/components/BookingStep";
 import { CTA } from "@/components/CTA";
+import { FAQItem } from "@/components/FAQ";
 import { FeatureCard } from "@/components/FeatureCard";
 import { FleetCard } from "@/components/FleetCard";
 import { Footer } from "@/components/Footer";
@@ -15,6 +16,7 @@ import {
   business,
   demoAreas,
   experienceBenefits,
+  faqs,
   fleet,
   featuredSpecs,
   schemaFaq,
@@ -50,6 +52,7 @@ export default function Home() {
         <CoverageSection />
         <ExperienceSection />
         <BookingSection />
+        <FAQSection />
         <CTA />
       </main>
       <Footer />
@@ -189,6 +192,24 @@ function BookingSection() {
         <Reveal className="center-heading booking-heading"><p className="section-kicker">Cara sewa</p><h2>Mudah dalam 4 Langkah</h2></Reveal>
         <div className="booking-grid">
           {bookingSteps.map((step, index) => <Reveal key={step.title} delay={index * 0.04}><BookingStep {...step} index={index} isLast={index === bookingSteps.length - 1} /></Reveal>)}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FAQSection() {
+  return (
+    <section id="faq" className="faq-section faq-polish-section">
+      <div className="container-page">
+        <Reveal className="center-heading faq-heading">
+          <p className="section-kicker">Pertanyaan umum</p>
+          <h2>Pertanyaan yang Sering Diajukan</h2>
+          <p>Jawaban umum sebelum Anda menghubungi tim Azbu Trans Jaya.</p>
+        </Reveal>
+        <div className="faq-grid">
+          <div>{faqs.slice(0, 3).map((faq) => <FAQItem key={faq.question} {...faq} />)}</div>
+          <div>{faqs.slice(3).map((faq) => <FAQItem key={faq.question} {...faq} />)}</div>
         </div>
       </div>
     </section>

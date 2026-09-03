@@ -2,16 +2,18 @@
 
 Website company profile dan landing page pemesanan untuk **Azbu Trans Jaya**, penyedia rental mobil yang melayani Surabaya, Sidoarjo, dan area sekitarnya.
 
-Homepage menggunakan struktur editorial otomotif: hero armada, katalog kendaraan horizontal, alasan memilih layanan, featured vehicle, layanan dan alur booking berdampingan, cakupan area, FAQ, serta CTA WhatsApp. Identitas visual Azbu Trans Jaya—warna, tipografi, logo, dan aset kendaraan—dipertahankan sebagai fondasi desain.
+Homepage menggunakan alur landing page rental modern: hero armada, panel booking mengambang, trust strip, katalog kendaraan, featured vehicle, cakupan area, benefit, alur booking, FAQ, serta CTA WhatsApp. Identitas visual Azbu Trans Jaya—warna, tipografi, logo, dan aset kendaraan—tetap menjadi fondasi desain.
 
 ## Fitur utama
 
 - Hero responsif dengan fokus pada armada dan CTA utama
-- Katalog tujuh kendaraan dengan horizontal scroll pada layar kecil
-- Section benefit horizontal yang mudah dipindai
+- Panel booking responsif yang membentuk pesan WhatsApp sesuai kebutuhan perjalanan
+- Katalog tujuh kendaraan dengan grid empat kolom di desktop dan kartu khusus mobile
+- Trust strip dan benefit cards yang ringkas serta mudah dipindai
 - Featured Innova Reborn dengan presentasi sinematik
-- Ringkasan layanan dan alur booking empat langkah
-- Visual area layanan Surabaya, Sidoarjo, dan sekitarnya
+- Alur booking empat langkah yang konsisten di desktop, tablet, dan mobile
+- Section editorial area layanan Surabaya, Sidoarjo, dan sekitarnya
+- FAQ accordion yang accessible
 - Harga mulai setiap armada yang dikelola terpusat bersama data kendaraan
 - CTA WhatsApp dengan pesan yang dapat dikonfigurasi
 - Sticky navigation, mobile menu, dan floating CTA pada mobile
