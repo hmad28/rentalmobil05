@@ -297,7 +297,8 @@
 
 .fleet-catalog-section .fleet-image-wrap {
   order: 1;
-  height: 204px;
+  height: auto;
+  aspect-ratio: 1;
   margin: 0 0 13px;
   overflow: hidden;
   border-radius: 6px;
@@ -671,7 +672,7 @@
   .fleet-tabs button { flex: 0 0 auto; }
   .fleet-catalog-section .fleet-track { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
   .fleet-catalog-section .fleet-card { min-height: 346px; padding: 8px; }
-  .fleet-catalog-section .fleet-image-wrap { height: 150px; }
+  .fleet-catalog-section .fleet-image-wrap { height: auto; aspect-ratio: 1; }
   .fleet-catalog-section .fleet-card > strong { font-size: 12px; }
   .fleet-card-price b { font-size: 13px; }
   .fleet-card-cta { min-height: 37px; }
