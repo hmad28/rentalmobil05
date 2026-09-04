@@ -13,6 +13,7 @@ import {
   Plane,
   ShieldCheck,
   Snowflake,
+  UserCheck,
 } from "lucide-react";
 
 export const business = {
@@ -37,6 +38,14 @@ export function whatsappUrl(message = generalWhatsappMessage) {
     : "#kontak";
 }
 
+export const driverPricing = {
+  city: 200000,
+  outOfCity: 250000,
+  outOfRegionMin: 50000,
+  outOfRegionMax: 100000,
+  outOfRegionNote: "Tambahan Rp50.000–Rp100.000, menyesuaikan tujuan.",
+};
+
 export type FleetVehicle = {
   name: string;
   category: string;
@@ -47,16 +56,17 @@ export type FleetVehicle = {
 };
 
 export const fleet: FleetVehicle[] = [
-  { name: "Sigra Automatic", category: "City Car", image: "/images/sigra.png", transmission: "Automatic", seats: "5–7 Seat", price: 350000 },
-  { name: "XL7 Automatic", category: "MPV", image: "/images/xl7.png", transmission: "Automatic", seats: "7 Seat", price: 450000 },
-  { name: "Xenia", category: "MPV", image: "/images/xenia.png", transmission: "Automatic", seats: "7 Seat", price: 350000 },
+  { name: "Daihatsu Sigra AT", category: "City Car", image: "/images/sigra.png", transmission: "Automatic", seats: "5–7 Seat", price: 325000 },
+  { name: "Suzuki XL7 AT", category: "MPV", image: "/images/xl7.png", transmission: "Automatic", seats: "7 Seat", price: 400000 },
+  { name: "Daihatsu Xenia 2018 Manual", category: "MPV", image: "/images/xenia.png", transmission: "Manual", seats: "7 Seat", price: 275000 },
+  { name: "Daihatsu Ayla AT", category: "City Car", image: "/images/ayla.png", transmission: "Automatic", seats: "5 Seat", price: 275000 },
   { name: "Avanza Manual", category: "MPV", image: "/images/avanza.png", transmission: "Manual", seats: "7 Seat", price: 300000 },
   { name: "Sirion Automatic", category: "City Car", image: "/images/sirion.png", transmission: "Automatic", seats: "5 Seat", price: 300000 },
   { name: "Innova Reborn Automatic", category: "Premium", image: "/images/innova.png", transmission: "Automatic", seats: "7 Seat", price: 600000 },
   { name: "Hiace", category: "Minibus", image: "/images/hiace.png", transmission: "Manual", seats: "Rombongan", price: 1000000 },
 ];
 
-export const featuredFleet = [fleet[0], fleet[1], fleet[5], fleet[6]];
+export const featuredFleet = [fleet[0], fleet[1], fleet[6], fleet[7]];
 
 export const gallery = [
   { image: "/images/gallery-fleet.png", alt: "Visual representatif jajaran armada rental", label: "Armada siap perjalanan" },
@@ -138,6 +148,18 @@ export const services: ServiceItem[] = [
     image: "/images/gallery-fleet.png",
     imageAlt: "Visual representatif armada rental harian",
     points: ["Pilihan unit sesuai kebutuhan", "Jadwal dikonfirmasi via WhatsApp"],
+  },
+  {
+    title: "Rental + Driver",
+    description: "Layanan sewa mobil dengan pengemudi profesional untuk perjalanan santai dan bebas lelah.",
+    icon: UserCheck,
+    image: "/images/gallery-interior.png",
+    imageAlt: "Visual representatif layanan rental mobil dengan driver",
+    points: [
+      "Dalam Kota: Rp200.000 / hari",
+      "Luar Kota: Rp250.000 / hari",
+      "Luar Daerah: +Rp50.000–Rp100.000 (sesuai tujuan)",
+    ],
   },
   {
     title: "Antar Jemput & Airport",

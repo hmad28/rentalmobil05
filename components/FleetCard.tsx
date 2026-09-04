@@ -45,9 +45,10 @@ export function FleetCard({ name, image, transmission, seats, price }: FleetVehi
 
         <div className="fleet-card-price-row">
           <div>
-            <small>Mulai dari</small>
+            <small>Harga Kendaraan</small>
             <b>Rp {price.toLocaleString("id-ID")} <span className="text-[11px] font-medium text-muted">/ Hari</span></b>
           </div>
+          <span className="fleet-driver-addon-tag">+ Driver tersedia</span>
         </div>
 
         <a

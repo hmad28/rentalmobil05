@@ -1321,3 +1321,305 @@
 .trust-strip > div > span {
   min-width: 0;
 }
+
+/* ===== 4-CARD SERVICES GRID & DRIVER SERVICE STYLING ===== */
+.services-section {
+  padding: 80px 0 88px;
+  background: #fffdf9;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 36px;
+}
+
+.service-item {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(49, 37, 27, 0.04);
+  transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
+}
+
+.service-item:hover {
+  transform: translateY(-5px);
+  border-color: rgba(201, 39, 44, 0.3);
+  box-shadow: 0 16px 36px rgba(201, 39, 44, 0.08);
+}
+
+.service-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 20px 20px 22px;
+}
+
+.service-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.service-title-row svg {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.service-title-row h3 {
+  color: var(--foreground);
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.service-content > p {
+  min-height: 48px;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.6;
+}
+
+.service-content ul {
+  display: grid;
+  gap: 8px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.service-content li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: #444;
+  font-size: 11.5px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.service-content li svg {
+  margin-top: 2px;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+/* ===== FLEET CARD DRIVER ADD-ON TAG ===== */
+.fleet-card-price-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.fleet-driver-addon-tag {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: #fdf2f2;
+  border: 1px solid rgba(201, 39, 44, 0.18);
+  color: var(--primary);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+/* ===== INTERACTIVE QUICK BOOKING PANEL DROPDOWNS & NOTE ===== */
+.interactive-booking-fields {
+  position: relative;
+}
+
+.booking-field-select-wrap {
+  position: relative;
+  min-width: 0;
+}
+
+.booking-select-btn {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  min-height: 56px;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #fff;
+  padding: 0 14px;
+  cursor: pointer;
+  text-align: left;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.02);
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.booking-select-btn:hover,
+.booking-select-btn:focus {
+  border-color: rgba(201, 39, 44, 0.45);
+  box-shadow: 0 4px 14px rgba(201, 39, 44, 0.08);
+  outline: none;
+}
+
+.booking-select-btn svg:not(.booking-chevron) {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.booking-select-text {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  line-height: 1.2;
+}
+
+.booking-select-text small {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.booking-select-text strong {
+  display: block;
+  overflow: hidden;
+  color: var(--foreground);
+  font-size: 13px;
+  font-weight: 750;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.booking-chevron {
+  color: var(--muted);
+  transition: transform 200ms ease;
+  flex-shrink: 0;
+}
+
+.booking-chevron.rotated {
+  transform: rotate(180deg);
+}
+
+.booking-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: 50;
+  max-height: 250px;
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fff;
+  padding: 6px;
+  box-shadow: 0 16px 36px rgba(49, 37, 27, 0.15);
+}
+
+.booking-dropdown-item {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  padding: 8px 10px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 12px;
+  transition: background-color 150ms ease;
+}
+
+.booking-dropdown-item:hover {
+  background: #fff5f4;
+  color: var(--primary);
+}
+
+.booking-dropdown-item.active {
+  background: #fdf2f2;
+  font-weight: 750;
+  color: var(--primary);
+}
+
+.booking-item-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.booking-item-price {
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 11px;
+}
+
+.booking-check-icon {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.booking-field-link {
+  display: flex;
+  min-width: 0;
+  min-height: 56px;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #fff;
+  padding: 0 16px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.02);
+  transition: border-color 200ms ease, transform 200ms ease;
+}
+
+.booking-field-link:hover {
+  border-color: rgba(201, 39, 44, 0.45);
+}
+
+.booking-field-link svg {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.quick-booking-driver-note {
+  margin-top: 14px;
+}
+
+.driver-note-pill {
+  display: inline-block;
+  border-radius: 8px;
+  background: #fff5f4;
+  border: 1px solid rgba(201, 39, 44, 0.15);
+  padding: 6px 14px;
+  color: #555;
+  font-size: 11.5px;
+  line-height: 1.45;
+}
+
+.driver-note-pill strong {
+  color: var(--primary);
+  font-weight: 750;
+}
+

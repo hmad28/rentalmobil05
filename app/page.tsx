@@ -9,7 +9,9 @@ import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { MobileWhatsapp } from "@/components/MobileWhatsapp";
 import { Navbar } from "@/components/Navbar";
+import { QuickBookingPanel } from "@/components/QuickBookingPanel";
 import { Reveal } from "@/components/Reveal";
+import { ServiceCard } from "@/components/ServiceCard";
 import {
   benefits,
   bookingSteps,
@@ -48,6 +50,7 @@ export default function Home() {
         <QuickBookingPanel />
         <TrustStrip />
         <FleetSection />
+        <ServicesSection />
         <FeaturedVehicle />
         <CoverageSection />
         <ExperienceSection />
@@ -62,29 +65,24 @@ export default function Home() {
   );
 }
 
-function QuickBookingPanel() {
+function ServicesSection() {
   return (
-    <section className="quick-booking-wrap" aria-label="Mulai perjalanan Anda">
+    <section id="layanan" className="services-section">
       <div className="container-page">
-        <Reveal className="quick-booking-panel">
-          <div className="quick-booking-intro">
-            <strong>Mulai Perjalanan Anda</strong>
-            <span>Pilih layanan dan detail perjalanan, lalu cek ketersediaan melalui WhatsApp.</span>
-          </div>
-
-          <div className="quick-service-options">
-            {services.map(({ title, icon: Icon }) => (
-              <a href="#layanan" key={title}><Icon size={18} /><span>{title}</span></a>
-            ))}
-          </div>
-
-          <div className="quick-booking-fields">
-            <a href="#armada"><CarFront size={18} /><span><small>Kendaraan</small>Pilih Unit</span></a>
-            <a href={whatsappUrl()}><CalendarDays size={18} /><span><small>Jadwal</small>Pilih Tanggal</span></a>
-            <a href={whatsappUrl()}><MapPin size={18} /><span><small>Perjalanan</small>Masukkan Tujuan</span></a>
-            <a href={whatsappUrl()} className="quick-booking-action"><MessageCircle size={18} />Cek Ketersediaan</a>
-          </div>
+        <Reveal className="center-heading services-heading">
+          <p className="section-kicker">Pilihan Layanan</p>
+          <h2>Layanan Rental & Driver<br />Sesuai Kebutuhan Perjalanan</h2>
+          <p className="max-w-[580px] mx-auto mt-3 text-muted text-sm">
+            Tersedia pilihan sewa lepas kunci maupun rental lengkap dengan pengemudi profesional untuk kenyamanan maksimal.
+          </p>
         </Reveal>
+        <div className="services-grid">
+          {services.map((service, index) => (
+            <Reveal key={service.title} delay={index * 0.04}>
+              <ServiceCard {...service} />
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -171,7 +169,7 @@ function CoverageSection() {
 
 function ExperienceSection() {
   return (
-    <section id="layanan" className="experience-section">
+    <section id="keunggulan" className="experience-section">
       <div className="container-page">
         <Reveal className="center-heading experience-heading">
           <p className="section-kicker">Kenapa memilih kami</p>
