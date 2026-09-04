@@ -66,10 +66,10 @@
 .mobile-hero-title {
   margin: 0;
   color: var(--foreground);
-  font-size: clamp(38px, 9.8vw, 44px);
+  font-size: clamp(42px, 11vw, 48px);
   font-weight: 850;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
 }
 
 .mobile-hero-title span {
