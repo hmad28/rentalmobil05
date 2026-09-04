@@ -35,8 +35,7 @@ export function Hero() {
 
           <h1 className="mobile-hero-title">
             Rental Mobil<br />
-            <span>Surabaya &</span><br />
-            Sidoarjo
+            <span>Surabaya &amp; Sidoarjo</span>
           </h1>
 
           <p className="mobile-hero-desc">

@@ -72,7 +72,7 @@ function ServicesSection() {
         <Reveal className="center-heading services-heading">
           <p className="section-kicker">Pilihan Layanan</p>
           <h2>Layanan Rental & Driver<br />Sesuai Kebutuhan Perjalanan</h2>
-          <p className="max-w-[580px] mx-auto mt-3 text-muted text-sm">
+          <p className="services-desc">
             Tersedia pilihan sewa lepas kunci maupun rental lengkap dengan pengemudi profesional untuk kenyamanan maksimal.
           </p>
         </Reveal>

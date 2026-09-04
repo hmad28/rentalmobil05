@@ -66,13 +66,14 @@
 .mobile-hero-title {
   margin: 0;
   color: var(--foreground);
-  font-size: clamp(42px, 11vw, 46px);
+  font-size: clamp(38px, 9.8vw, 44px);
   font-weight: 850;
-  line-height: 0.98;
-  letter-spacing: -0.035em;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
 }
 
 .mobile-hero-title span {
+  display: block;
   color: var(--primary);
 }
 
@@ -1151,10 +1152,14 @@
   .quick-booking-intro { display: block; }
   .quick-booking-intro strong { display: block; font-size: 17px; }
   .quick-booking-intro > span { display: block; margin-top: 5px; line-height: 1.5; }
-  .quick-service-options { display: grid; grid-template-columns: 1fr; }
-  .quick-service-options a { min-height: 42px; }
-  .quick-booking-fields { grid-template-columns: 1fr; }
-  .quick-booking-fields > a { min-height: 54px; }
+  .quick-service-options { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .quick-service-options a { min-height: 40px; justify-content: center; font-size: 11.5px; }
+  .quick-booking-fields { grid-template-columns: 1fr; gap: 10px; }
+  .quick-booking-fields .booking-select-btn,
+  .quick-booking-fields .booking-field-link,
+  .quick-booking-fields .quick-booking-action { min-height: 52px; }
+  .quick-booking-driver-note { text-align: center; }
+  .driver-note-pill { font-size: 10.5px; padding: 6px 10px; width: 100%; box-sizing: border-box; }
 
   .trust-strip-wrap { padding: 22px 0 56px; }
   .trust-strip { grid-template-columns: 1fr; gap: 0; padding: 10px 18px; }
@@ -1326,6 +1331,34 @@
 .services-section {
   padding: 80px 0 88px;
   background: #fffdf9;
+}
+
+.services-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 680px;
+  margin-inline: auto;
+}
+
+.services-heading .section-kicker {
+  justify-content: center;
+  margin-inline: auto;
+}
+
+.services-heading h2 {
+  text-align: center;
+  margin: 12px 0 0;
+}
+
+.services-desc {
+  max-width: 580px;
+  margin: 14px auto 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.65;
+  text-align: center;
 }
 
 .services-grid {

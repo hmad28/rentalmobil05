@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CarFront, Check, ChevronDown, MapPin, MessageCircle, UserCheck } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { fleet, services, whatsappUrl, driverPricing } from "@/lib/data";
@@ -12,13 +12,37 @@ const driverOptions = [
   { id: "outOfRegion", label: "Driver Luar Daerah (+Rp50rb–100rb, menyesuaikan tujuan)", tag: "Driver Luar Daerah" },
 ];
 
+const areaOptions = [
+  { id: "surabaya-sidoarjo", label: "Surabaya & Sidoarjo (Dalam Kota)", tag: "Surabaya & Sidoarjo" },
+  { id: "luar-daerah", label: "Luar Kota / Luar Daerah", tag: "Luar Daerah" },
+];
+
 export function QuickBookingPanel() {
   const [selectedVehicle, setSelectedVehicle] = useState(fleet[0].name);
   const [selectedDriver, setSelectedDriver] = useState("none");
+  const [selectedArea, setSelectedArea] = useState("surabaya-sidoarjo");
+
   const [showVehicleDropdown, setShowVehicleDropdown] = useState(false);
   const [showDriverDropdown, setShowDriverDropdown] = useState(false);
+  const [showAreaDropdown, setShowAreaDropdown] = useState(false);
+
+  const panelRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdowns when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (panelRef.current && !panelRef.current.contains(event.target as Node)) {
+        setShowVehicleDropdown(false);
+        setShowDriverDropdown(false);
+        setShowAreaDropdown(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const activeDriverObj = driverOptions.find((d) => d.id === selectedDriver) || driverOptions[0];
+  const activeAreaObj = areaOptions.find((a) => a.id === selectedArea) || areaOptions[0];
 
   let driverText = "";
   if (selectedDriver === "none") {
@@ -31,11 +55,11 @@ export function QuickBookingPanel() {
     driverText = "Driver Luar Daerah";
   }
 
-  const composedMessage = `Halo Kak, saya ingin rental ${selectedVehicle} dengan ${driverText}. Bisa dibantu cek ketersediaan dan total biayanya?`;
+  const composedMessage = `Halo Kak, saya ingin rental ${selectedVehicle} dengan ${driverText} untuk area ${activeAreaObj.label}. Bisa dibantu cek ketersediaan dan total biayanya?`;
 
   return (
     <section className="quick-booking-wrap" aria-label="Mulai perjalanan Anda">
-      <div className="container-page">
+      <div className="container-page" ref={panelRef}>
         <Reveal className="quick-booking-panel">
           <div className="quick-booking-intro">
             <strong>Mulai Perjalanan Anda</strong>
@@ -52,7 +76,7 @@ export function QuickBookingPanel() {
           </div>
 
           <div className="quick-booking-fields interactive-booking-fields">
-            {/* Field 1: Pilih Kendaraan */}
+            {/* Field 1: Custom Dropdown Kendaraan */}
             <div className="booking-field-select-wrap">
               <button
                 type="button"
@@ -60,8 +84,10 @@ export function QuickBookingPanel() {
                 onClick={() => {
                   setShowVehicleDropdown(!showVehicleDropdown);
                   setShowDriverDropdown(false);
+                  setShowAreaDropdown(false);
                 }}
                 aria-label="Pilih unit armada"
+                aria-expanded={showVehicleDropdown}
               >
                 <CarFront size={18} />
                 <span className="booking-select-text">
@@ -92,7 +118,7 @@ export function QuickBookingPanel() {
               )}
             </div>
 
-            {/* Field 2: Butuh Driver? */}
+            {/* Field 2: Custom Dropdown Driver / Tanpa Driver */}
             <div className="booking-field-select-wrap">
               <button
                 type="button"
@@ -100,12 +126,14 @@ export function QuickBookingPanel() {
                 onClick={() => {
                   setShowDriverDropdown(!showDriverDropdown);
                   setShowVehicleDropdown(false);
+                  setShowAreaDropdown(false);
                 }}
                 aria-label="Pilih layanan driver"
+                aria-expanded={showDriverDropdown}
               >
                 <UserCheck size={18} />
                 <span className="booking-select-text">
-                  <small>Butuh Driver?</small>
+                  <small>Layanan Driver</small>
                   <strong>{activeDriverObj.tag}</strong>
                 </span>
                 <ChevronDown size={15} className={`booking-chevron ${showDriverDropdown ? "rotated" : ""}`} />
@@ -131,14 +159,46 @@ export function QuickBookingPanel() {
               )}
             </div>
 
-            {/* Field 3: Area / Tujuan */}
-            <a href="#tentang" className="booking-field-link">
-              <MapPin size={18} />
-              <span className="booking-select-text">
-                <small>Area Layanan</small>
-                <strong>Surabaya & Sidoarjo</strong>
-              </span>
-            </a>
+            {/* Field 3: Custom Dropdown Area Surabaya & Sidoarjo / Luar Daerah */}
+            <div className="booking-field-select-wrap">
+              <button
+                type="button"
+                className="booking-select-btn"
+                onClick={() => {
+                  setShowAreaDropdown(!showAreaDropdown);
+                  setShowVehicleDropdown(false);
+                  setShowDriverDropdown(false);
+                }}
+                aria-label="Pilih area perjalanan"
+                aria-expanded={showAreaDropdown}
+              >
+                <MapPin size={18} />
+                <span className="booking-select-text">
+                  <small>Area / Tujuan</small>
+                  <strong>{activeAreaObj.tag}</strong>
+                </span>
+                <ChevronDown size={15} className={`booking-chevron ${showAreaDropdown ? "rotated" : ""}`} />
+              </button>
+
+              {showAreaDropdown && (
+                <div className="booking-dropdown-menu">
+                  {areaOptions.map((opt) => (
+                    <button
+                      key={opt.id}
+                      type="button"
+                      className={`booking-dropdown-item ${selectedArea === opt.id ? "active" : ""}`}
+                      onClick={() => {
+                        setSelectedArea(opt.id);
+                        setShowAreaDropdown(false);
+                      }}
+                    >
+                      <span className="booking-item-name">{opt.label}</span>
+                      {selectedArea === opt.id && <Check size={14} className="booking-check-icon" />}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
 
             {/* Field 4: Tombol Cek Ketersediaan via WhatsApp */}
             <a
