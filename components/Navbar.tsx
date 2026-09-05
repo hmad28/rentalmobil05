@@ -2,24 +2,58 @@
 
 import Image from "next/image";
 import { CalendarDays, Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { whatsappUrl } from "@/lib/data";
 
 const navItems = [
-  ["Beranda", "#beranda"],
-  ["Armada", "#armada"],
-  ["Layanan", "#layanan"],
-  ["Tentang", "#tentang"],
-  ["Kontak", "#kontak"],
+  ["Beranda", "#beranda", "beranda"],
+  ["Armada", "#armada", "armada"],
+  ["Layanan", "#layanan", "layanan"],
+  ["Tentang", "#tentang", "tentang"],
+  ["Kontak", "#kontak", "kontak"],
 ];
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("beranda");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sectionIds = ["beranda", "armada", "layanan", "tentang", "kontak"];
+      const scrollPosition = window.scrollY + 140;
+
+      for (let i = sectionIds.length - 1; i >= 0; i--) {
+        const id = sectionIds[i];
+        const element = document.getElementById(id);
+        if (element) {
+          const top = element.offsetTop;
+          if (scrollPosition >= top) {
+            setActiveSection(id);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const handleNavClick = (id: string) => {
+    setActiveSection(id);
+    setOpen(false);
+  };
 
   return (
     <header className="site-header">
       <div className="container-page nav-inner">
-        <a href="#beranda" className="brand-link" aria-label="Azbu Trans Jaya - Beranda">
+        <a
+          href="#beranda"
+          className="brand-link"
+          aria-label="Azbu Trans Jaya - Beranda"
+          onClick={() => handleNavClick("beranda")}
+        >
           <Image
             src="/images/azbu-logo.png"
             alt="Azbu Trans Jaya"
@@ -31,8 +65,13 @@ export function Navbar() {
         </a>
 
         <nav className="desktop-nav" aria-label="Navigasi utama">
-          {navItems.map(([label, href], index) => (
-            <a key={label} href={href} className={index === 0 ? "active" : ""}>
+          {navItems.map(([label, href, id]) => (
+            <a
+              key={label}
+              href={href}
+              className={activeSection === id ? "active" : ""}
+              onClick={() => handleNavClick(id)}
+            >
               {label}
             </a>
           ))}
@@ -58,8 +97,13 @@ export function Navbar() {
       {open ? (
         <nav id="mobile-menu" className="mobile-menu" aria-label="Navigasi mobile">
           <div className="container-page">
-            {navItems.map(([label, href]) => (
-              <a key={label} href={href} onClick={() => setOpen(false)}>
+            {navItems.map(([label, href, id]) => (
+              <a
+                key={label}
+                href={href}
+                className={activeSection === id ? "active-mobile-link" : ""}
+                onClick={() => handleNavClick(id)}
+              >
                 {label}
               </a>
             ))}
