@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { CarFront, Check, ChevronDown, MapPin, MessageCircle, UserCheck } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
-import { fleet, services, whatsappUrl, driverPricing } from "@/lib/data";
+import { fleet, whatsappUrl, driverPricing } from "@/lib/data";
 
 const driverOptions = [
   { id: "none", label: "Tanpa Driver (Lepas Kunci)", tag: "Tanpa Driver" },
@@ -64,15 +64,6 @@ export function QuickBookingPanel() {
           <div className="quick-booking-intro">
             <strong>Mulai Perjalanan Anda</strong>
             <span>Pilih layanan dan armada, tentukan opsi driver, lalu cek ketersediaan via WhatsApp.</span>
-          </div>
-
-          <div className="quick-service-options">
-            {services.map(({ title, icon: Icon }) => (
-              <a href="#layanan" key={title}>
-                <Icon size={16} />
-                <span>{title}</span>
-              </a>
-            ))}
           </div>
 
           <div className="quick-booking-fields interactive-booking-fields">
