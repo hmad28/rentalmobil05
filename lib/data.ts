@@ -56,12 +56,12 @@ export type FleetVehicle = {
 };
 
 export const fleet: FleetVehicle[] = [
-  { name: "Daihatsu Sigra AT", category: "City Car", image: "/images/sigra.png", transmission: "Automatic", seats: "5–7 Seat", price: 325000 },
+  { name: "Daihatsu Sigra R AT", category: "City Car", image: "/images/sigra.png", transmission: "Automatic", seats: "5–7 Seat", price: 325000 },
   { name: "Suzuki XL7 AT", category: "MPV", image: "/images/xl7.png", transmission: "Automatic", seats: "7 Seat", price: 400000 },
   { name: "Daihatsu Xenia 2018 Manual", category: "MPV", image: "/images/xenia.png", transmission: "Manual", seats: "7 Seat", price: 275000 },
   { name: "Daihatsu Ayla AT", category: "City Car", image: "/images/ayla.png", transmission: "Automatic", seats: "5 Seat", price: 275000 },
   { name: "Avanza Manual", category: "MPV", image: "/images/avanza.png", transmission: "Manual", seats: "7 Seat", price: 300000 },
-  { name: "Sirion Automatic", category: "City Car", image: "/images/sirion.png", transmission: "Automatic", seats: "5 Seat", price: 300000 },
+  { name: "Daihatsu Sirion 2016 AT", category: "City Car", image: "/images/sirion.png", transmission: "Automatic", seats: "5 Seat", price: 300000 },
   { name: "Innova Reborn Automatic", category: "Premium", image: "/images/innova.png", transmission: "Automatic", seats: "7 Seat", price: 600000 },
   { name: "Hiace", category: "Minibus", image: "/images/hiace.png", transmission: "Manual", seats: "Rombongan", price: 1000000 },
 ];
